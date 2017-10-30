@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-10-30T00:41:01.493Z</updated>
+  <updated>2017-10-30T15:45:22.413Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://yoursite.com/2017/10/23/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F%E6%80%9D%E7%BB%B4%E5%AF%BC%E5%9B%BE/"/>
     <id>http://yoursite.com/2017/10/23/深入理解计算机系统思维导图/</id>
     <published>2017-10-23T00:39:05.000Z</published>
-    <updated>2017-10-30T00:41:01.493Z</updated>
+    <updated>2017-10-30T15:45:22.413Z</updated>
     
     <content type="html"><![CDATA[<p>初步阅读了《深入理解计算机系统》，根据自己的情况，将内容和收获总结为以下导图：<br><img src="https://ws1.sinaimg.cn/large/005Ra7Fdgy1fkzz5ixv1ij32w11aualc.jpg" alt=""></p>
 ]]></content>
@@ -33,6 +33,8 @@
     </summary>
     
     
+      <category term="计算机系统" scheme="http://yoursite.com/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F/"/>
+    
   </entry>
   
   <entry>
@@ -40,7 +42,7 @@
     <link href="http://yoursite.com/2017/10/20/DCL%E7%9A%84%E7%AE%80%E5%8D%95%E5%88%86%E6%9E%90/"/>
     <id>http://yoursite.com/2017/10/20/DCL的简单分析/</id>
     <published>2017-10-20T14:42:31.000Z</published>
-    <updated>2017-10-29T14:44:54.117Z</updated>
+    <updated>2017-10-30T15:43:07.654Z</updated>
     
     <content type="html"><![CDATA[<p>DCL是单例模式的懒汉式实现方式之一，全称为Double Check Lock，和饿汉式单例实现相比，它的单例对象实例化是在第一次调用获取单例的时候。与饿汉式单例模式一样，它也是线程安全的。很重要的一点就是关键字volatile的使用，下面从为什么volatile可以保证DCL的线程安全进行学习总结。<br><a id="more"></a></p>
 <h2 id="DCL中第二次判空的作用"><a href="#DCL中第二次判空的作用" class="headerlink" title="DCL中第二次判空的作用"></a>DCL中第二次判空的作用</h2><p>不使用volatile的DCL代码如下：</p>
@@ -129,6 +131,8 @@
     </summary>
     
     
+      <category term="设计模式" scheme="http://yoursite.com/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
+    
   </entry>
   
   <entry>
@@ -136,7 +140,7 @@
     <link href="http://yoursite.com/2017/07/26/%E9%9A%90%E5%BC%8Fintent%E7%9A%84%E5%8C%B9%E9%85%8D%E8%A7%84%E5%88%99/"/>
     <id>http://yoursite.com/2017/07/26/隐式intent的匹配规则/</id>
     <published>2017-07-26T13:08:47.000Z</published>
-    <updated>2017-07-26T13:11:15.024Z</updated>
+    <updated>2017-10-30T15:46:32.827Z</updated>
     
     <content type="html"><![CDATA[<h2 id="隐式Intent"><a href="#隐式Intent" class="headerlink" title="隐式Intent"></a>隐式Intent</h2><p>通过隐式intent启动组件的时候，系统通过将该intent的内容与其他应用的AndroidManifest.xml中声明的Intent-filter进行比较，找到匹配的组件，并将该intent传递给组件，若有多个组件匹配，那么会提示用户选取某个应用。通过隐式intent来启动activity的匹配过程如下如所示：<br><a id="more"></a><br><img src="http://ohvhuumh1.bkt.clouddn.com/17-7-24/14689291.jpg" alt=""><br>最终调用到了所匹配成功的Activity的onCreate()方法。<br>隐式intent的匹配涉及了Intent中的三个信息，分别是：</p>
 <ol>
@@ -225,8 +229,8 @@ Log.i(&quot;H&quot;,site);
     
     </summary>
     
-      <category term="android" scheme="http://yoursite.com/categories/android/"/>
     
+      <category term="Android" scheme="http://yoursite.com/tags/Android/"/>
     
   </entry>
   
@@ -235,7 +239,7 @@ Log.i(&quot;H&quot;,site);
     <link href="http://yoursite.com/2017/07/16/%E6%96%B0%E7%9A%84%E5%BE%81%E7%A8%8B%E2%80%94%E2%80%94%E9%9A%8F%E6%89%8B%E8%AE%B0/"/>
     <id>http://yoursite.com/2017/07/16/新的征程——随手记/</id>
     <published>2017-07-16T14:35:04.000Z</published>
-    <updated>2017-07-16T15:52:34.746Z</updated>
+    <updated>2017-10-30T15:46:13.903Z</updated>
     
     <content type="html"><![CDATA[<p>有一段时间没有更博了，前段时间的主要事情：</p>
 <ol>
@@ -262,8 +266,8 @@ Log.i(&quot;H&quot;,site);
     
     </summary>
     
-      <category term="随笔" scheme="http://yoursite.com/categories/%E9%9A%8F%E7%AC%94/"/>
     
+      <category term="随笔" scheme="http://yoursite.com/tags/%E9%9A%8F%E7%AC%94/"/>
     
   </entry>
   
@@ -272,7 +276,7 @@ Log.i(&quot;H&quot;,site);
     <link href="http://yoursite.com/2017/06/24/%E6%B5%85%E8%B0%88Android%E4%B8%AD%E7%9A%84Context/"/>
     <id>http://yoursite.com/2017/06/24/浅谈Android中的Context/</id>
     <published>2017-06-24T08:02:30.000Z</published>
-    <updated>2017-07-16T14:33:56.265Z</updated>
+    <updated>2017-10-30T15:44:49.619Z</updated>
     
     <content type="html"><![CDATA[<h2 id="官方对Context的解释"><a href="#官方对Context的解释" class="headerlink" title="官方对Context的解释"></a>官方对Context的解释</h2><p>这是Context类的声明和继承关系：<br><img src="https://ooo.0o0.ooo/2017/06/24/594e20a73559f.png" alt=""><br>可以看到Context是一个抽象类，在它的众多子类中，可以发现Activity、Service和Application的影子：<br><a href="https://developer.android.google.cn/reference/android/content/Context.html" target="_blank" rel="external">谷歌api文档</a><br><a id="more"></a><br>官方对Context类的解释如下：  </p>
 <blockquote>
@@ -346,8 +350,8 @@ notificationManager.notify(notificationId, builder.build());
     
     </summary>
     
-      <category term="Android" scheme="http://yoursite.com/categories/Android/"/>
     
+      <category term="Android" scheme="http://yoursite.com/tags/Android/"/>
     
   </entry>
   
@@ -356,7 +360,7 @@ notificationManager.notify(notificationId, builder.build());
     <link href="http://yoursite.com/2017/06/17/%E9%82%AE%E4%BB%B6%E6%9C%8D%E5%8A%A1%E5%9F%BA%E6%9C%AC%E7%9F%A5%E8%AF%86/"/>
     <id>http://yoursite.com/2017/06/17/邮件服务基本知识/</id>
     <published>2017-06-17T07:43:45.000Z</published>
-    <updated>2017-06-17T08:42:40.360Z</updated>
+    <updated>2017-10-30T15:46:47.015Z</updated>
     
     <content type="html"><![CDATA[<p>无意之间在廖雪峰的官网上看到了python的教程，简单浏览了一段，小有收获，对python有了浅显的认识，同时也收获到一些计算机的基础知识，简单做个记录，主要关于邮件服务的协议。</p>
 <h2 id="邮件收发的过程"><a href="#邮件收发的过程" class="headerlink" title="邮件收发的过程"></a>邮件收发的过程</h2><a id="more"></a>
@@ -429,10 +433,8 @@ server.quit()
     
     </summary>
     
-      <category term="计算机基础、python" scheme="http://yoursite.com/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80%E3%80%81python/"/>
     
-    
-      <category term="邮件" scheme="http://yoursite.com/tags/%E9%82%AE%E4%BB%B6/"/>
+      <category term="计算机网络" scheme="http://yoursite.com/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/"/>
     
   </entry>
   
@@ -441,7 +443,7 @@ server.quit()
     <link href="http://yoursite.com/2017/06/14/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E4%B9%8B%E9%80%82%E9%85%8D%E5%99%A8%E6%A8%A1%E5%BC%8F/"/>
     <id>http://yoursite.com/2017/06/14/设计模式之适配器模式/</id>
     <published>2017-06-14T13:28:26.000Z</published>
-    <updated>2017-06-16T08:14:06.752Z</updated>
+    <updated>2017-10-30T15:45:08.075Z</updated>
     
     <content type="html"><![CDATA[<p>本篇博客最后修改于6/16/2017 4:14:04 PM<br>最近学习《android源码设计模式》的同时，越来越感受到了设计模式在android源码中体现在相当多的地方，而且现今github上比较流行的开源库中也大都运用到了设计模式，这里先简单记录一下适配器模式的基本思想和例子，下一篇文章中会跟随android源码设计模式来梳理一下listview以及recyclerview中适配器模式的运用。</p>
 <h2 id="什么是适配器模式？"><a href="#什么是适配器模式？" class="headerlink" title="什么是适配器模式？"></a>什么是适配器模式？</h2><a id="more"></a>
@@ -546,7 +548,7 @@ server.quit()
     <link href="http://yoursite.com/2017/05/26/%E4%BF%AE%E6%94%B9apk%E7%9A%84debug%E7%AD%BE%E5%90%8D/"/>
     <id>http://yoursite.com/2017/05/26/修改apk的debug签名/</id>
     <published>2017-05-26T07:13:06.000Z</published>
-    <updated>2017-05-26T09:25:49.710Z</updated>
+    <updated>2017-10-30T15:46:24.106Z</updated>
     
     <content type="html"><![CDATA[<p>最近接手的爱课项目由于apk签名的问题导致微信分享和登陆出现错误，其实主要涉及apk的签名问题，查看了官方文档的解释，终于发现上学期学的信息安全知识派上了用场。这里作为一个简单的记录。<br><a href="https://developer.android.com/studio/publish/app-signing.html#release-mode" target="_blank" rel="external">官方文档之-签署你的应用</a><br><a id="more"></a></p>
 <h2 id="调试时使用的签名"><a href="#调试时使用的签名" class="headerlink" title="调试时使用的签名"></a>调试时使用的签名</h2><p>使用android studio进行调试的时候，如果没有特别指定应该使用哪一个签名文件的话，android studio将会使用默认的debug.keystore文件来签名apk，在windows系统里，这个文件位于C:\Users\username.android目录下，如下：<br><img src="http://i1.piimg.com/588926/1b7dbf05ef1111f0.png" alt=""><br>在该目录下执行以下命令可以查看keystore中存放着的信息：</p>
@@ -562,10 +564,8 @@ server.quit()
     
     </summary>
     
-      <category term="android" scheme="http://yoursite.com/categories/android/"/>
     
-    
-      <category term="apk签名" scheme="http://yoursite.com/tags/apk%E7%AD%BE%E5%90%8D/"/>
+      <category term="Android" scheme="http://yoursite.com/tags/Android/"/>
     
   </entry>
   
@@ -574,7 +574,7 @@ server.quit()
     <link href="http://yoursite.com/2017/05/21/Android%E4%B8%AD%E5%87%A0%E4%B8%AA%E5%B8%B8%E7%94%A8%E6%96%87%E4%BB%B6%E7%9B%AE%E5%BD%95/"/>
     <id>http://yoursite.com/2017/05/21/Android中几个常用文件目录/</id>
     <published>2017-05-21T06:50:29.000Z</published>
-    <updated>2017-05-21T09:15:44.159Z</updated>
+    <updated>2017-10-30T15:42:47.838Z</updated>
     
     <content type="html"><![CDATA[<p>最近在进行图片下载的时候涉及到了文件的保存目录，安卓里提供了许多获取文件目录的方法，为了便于区别在这里作一个记录。安卓手机提供了内部存储(internal storage)和外部存储(external storage)来保存数据。<br><a id="more"></a></p>
 <h2 id="内部存储"><a href="#内部存储" class="headerlink" title="内部存储"></a>内部存储</h2><p>内部存储位于系统中很特殊的一个位置，如果你想将文件存储于内部存储中，那么文件默认只能被你的应用访问到，且一个应用所创建的所有文件都在和应用包名相同的目录下，sharedPreference和sqlite数据库文件都存放在这个内部存储中，用activity的openFileOutput()方法创建的文件也存放在内部存储中。<br>内部存储的目录一般是/data/data/packageName/,不同的手机有一定的差别，下面分别是我的真机和genymotion模拟器的内部存储目录：<br><img src="http://i4.buimg.com/588926/2245551bb328bbf5.png" alt=""></p>
@@ -611,8 +611,8 @@ sendBroadcast(new Intent(Intent.ACTION_MEDIA_SCANNER_SCAN_FILE, Uri.parse(&quot;
     
     </summary>
     
-      <category term="Android" scheme="http://yoursite.com/categories/Android/"/>
     
+      <category term="Android" scheme="http://yoursite.com/tags/Android/"/>
     
   </entry>
   
@@ -621,7 +621,7 @@ sendBroadcast(new Intent(Intent.ACTION_MEDIA_SCANNER_SCAN_FILE, Uri.parse(&quot;
     <link href="http://yoursite.com/2017/05/11/%E5%AE%98%E6%96%B9%E6%96%87%E6%A1%A3%E5%AD%A6%E4%B9%A0%E4%B9%8B-%E9%AB%98%E6%95%88%E5%8A%A0%E8%BD%BD%E5%A4%A7%E5%9B%BE/"/>
     <id>http://yoursite.com/2017/05/11/官方文档学习之-高效加载大图/</id>
     <published>2017-05-11T13:50:01.000Z</published>
-    <updated>2017-05-11T14:34:12.626Z</updated>
+    <updated>2017-10-30T15:44:39.765Z</updated>
     
     <content type="html"><![CDATA[<p>本篇博客作为是图片加载的开端，为了更好地理解图片加载方面的知识，我参考官方文档进行一些练习，最后再比较综合地结合参考尝试构造一个基本的图片加载框架出来，尽管Glide已经独当一面了，但是图片加载的原理也定会让我收获不小。<br>本文的<a href="https://developer.android.com/topic/performance/graphics/load-bitmap.html" target="_blank" rel="external">google官网链接</a><br><a id="more"></a></p>
 <h2 id="不作优化的情况"><a href="#不作优化的情况" class="headerlink" title="不作优化的情况"></a>不作优化的情况</h2><p>在安卓设备上显示图片最简单的方法就是将图片设置给imageview，这里的图片格式可以是png、jpg以及其他常见的格式。<br>手机屏幕是有限的，许多情况下我们可能会在布局文件里设置imageview的宽高(比如100dp)，这时候将一张很大的图片设置给imageview，这种情况imageview加载图片的时候会把图片按照原来的大小整个加载进内存再设置给imageview，而imageview内部负责对图片进行缩放，虽然显示为小图，但是内存占用却是原来大图的大小。</p>
@@ -683,8 +683,8 @@ imageView.setImageBitmap(bitmapUtils.decodeSampleBitmapFromResource(getResources
     
     </summary>
     
-      <category term="官方文档学习记录" scheme="http://yoursite.com/categories/%E5%AE%98%E6%96%B9%E6%96%87%E6%A1%A3%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/"/>
     
+      <category term="Android" scheme="http://yoursite.com/tags/Android/"/>
     
   </entry>
   
@@ -693,7 +693,7 @@ imageView.setImageBitmap(bitmapUtils.decodeSampleBitmapFromResource(getResources
     <link href="http://yoursite.com/2017/05/09/volley%E5%AD%A6%E4%B9%A0%E4%B9%8B%E7%BC%93%E5%AD%98%E7%9A%84%E5%8E%9F%E7%90%86/"/>
     <id>http://yoursite.com/2017/05/09/volley学习之缓存的原理/</id>
     <published>2017-05-09T06:20:29.000Z</published>
-    <updated>2017-05-12T01:40:47.599Z</updated>
+    <updated>2017-10-30T15:44:10.417Z</updated>
     
     <content type="html"><![CDATA[<p>在前面简单地学习了volley的基本请求过程，那就是先访问缓存，缓存命中且没有过期就直接返回缓存的response，否则就进行网络请求，并对结果进行缓存，接下来再记录一下我对volley缓存部分的学习。</p>
 <h2 id="缓存目录的创建"><a href="#缓存目录的创建" class="headerlink" title="缓存目录的创建"></a>缓存目录的创建</h2><a id="more"></a>
@@ -924,8 +924,8 @@ public synchronized Entry get(String key) {
     
     </summary>
     
-      <category term="android" scheme="http://yoursite.com/categories/android/"/>
     
+      <category term="Android" scheme="http://yoursite.com/tags/Android/"/>
     
   </entry>
   
@@ -934,7 +934,7 @@ public synchronized Entry get(String key) {
     <link href="http://yoursite.com/2017/04/26/%E5%AE%89%E5%8D%93%E4%B8%AD%E7%9A%84%E6%B3%A8%E8%A7%A3/"/>
     <id>http://yoursite.com/2017/04/26/安卓中的注解/</id>
     <published>2017-04-26T09:51:42.000Z</published>
-    <updated>2017-04-30T14:44:58.959Z</updated>
+    <updated>2017-10-30T15:44:31.328Z</updated>
     
     <content type="html"><![CDATA[<h2 id="注解的分类"><a href="#注解的分类" class="headerlink" title="注解的分类"></a>注解的分类</h2><p>java中的注解按照处理方式可分为运行时注解和编译时注解。</p>
 <ul>
@@ -1103,10 +1103,8 @@ public class MainActivity extends AppCompatActivity {
     
     </summary>
     
-      <category term="android" scheme="http://yoursite.com/categories/android/"/>
     
-    
-      <category term="注解" scheme="http://yoursite.com/tags/%E6%B3%A8%E8%A7%A3/"/>
+      <category term="Android" scheme="http://yoursite.com/tags/Android/"/>
     
   </entry>
   
@@ -1115,7 +1113,7 @@ public class MainActivity extends AppCompatActivity {
     <link href="http://yoursite.com/2017/04/09/retrofit-okhttp%E7%BD%91%E7%BB%9C%E8%AF%B7%E6%B1%82%E6%9C%AC%E5%9C%B0%E7%BC%93%E5%AD%98/"/>
     <id>http://yoursite.com/2017/04/09/retrofit-okhttp网络请求本地缓存/</id>
     <published>2017-04-09T09:04:50.000Z</published>
-    <updated>2017-06-09T12:06:05.824Z</updated>
+    <updated>2017-10-30T15:43:41.362Z</updated>
     
     <content type="html"><![CDATA[<p>本篇博客最后修改于 5/22/2017 7:07:53 PM<br>移动端缓存的目的当然是希望用户在没有网络的情况下也能查看缓存过的内容对吧，以前学习Volley一次请求过程的时候其实已经接触到网络请求的缓存了<br><a id="more"></a></p>
 <h2 id="移动端缓存的典型作用"><a href="#移动端缓存的典型作用" class="headerlink" title="移动端缓存的典型作用"></a>移动端缓存的典型作用</h2><ol>
@@ -1192,10 +1190,8 @@ Observable&lt;NewsBean&gt; call(@Query(&quot;type&quot;) String type, @Query(&qu
     
     </summary>
     
-      <category term="Android" scheme="http://yoursite.com/categories/Android/"/>
     
-    
-      <category term="网络请求缓存" scheme="http://yoursite.com/tags/%E7%BD%91%E7%BB%9C%E8%AF%B7%E6%B1%82%E7%BC%93%E5%AD%98/"/>
+      <category term="Android" scheme="http://yoursite.com/tags/Android/"/>
     
   </entry>
   
@@ -1204,7 +1200,7 @@ Observable&lt;NewsBean&gt; call(@Query(&quot;type&quot;) String type, @Query(&qu
     <link href="http://yoursite.com/2017/04/05/Android%E5%88%A4%E6%96%AD%E7%BD%91%E7%BB%9C%E6%98%AF%E5%90%A6%E8%BF%9E%E6%8E%A5/"/>
     <id>http://yoursite.com/2017/04/05/Android判断网络是否连接/</id>
     <published>2017-04-05T05:12:32.000Z</published>
-    <updated>2017-05-11T11:22:08.598Z</updated>
+    <updated>2017-10-30T15:42:37.602Z</updated>
     
     <content type="html"><![CDATA[<p>今天使用retrofit+okhttp实现网络请求本地缓存的时候(在服务端不支持的情况下)，遇到本地缓存始终不能读取到的问题，一开始还以为Cache-Control设置错了，结果最终发现是判断网络状态出了问题，在这里记录一下。<br><a id="more"></a><br>最终需要实现的效果是，有网就访问服务器，没网就访问缓存(对网络请求的缓存由okHttp自带，Volley也具有该功能)，关于缓存部分在下一篇博客记录，这里简单记录一下判断网络状态的方法：  </p>
 <h2 id="判断网络是否连接"><a href="#判断网络是否连接" class="headerlink" title="判断网络是否连接"></a>判断网络是否连接</h2><pre><code>public class NetUtil {
@@ -1239,10 +1235,8 @@ Observable&lt;NewsBean&gt; call(@Query(&quot;type&quot;) String type, @Query(&qu
     
     </summary>
     
-      <category term="Android" scheme="http://yoursite.com/categories/Android/"/>
     
-    
-      <category term="android网络状态" scheme="http://yoursite.com/tags/android%E7%BD%91%E7%BB%9C%E7%8A%B6%E6%80%81/"/>
+      <category term="Android" scheme="http://yoursite.com/tags/Android/"/>
     
   </entry>
   
@@ -1251,7 +1245,7 @@ Observable&lt;NewsBean&gt; call(@Query(&quot;type&quot;) String type, @Query(&qu
     <link href="http://yoursite.com/2017/03/27/%E7%AE%97%E6%B3%95%E5%A4%8D%E4%B9%A0%E4%B9%8B%E2%80%94%E2%80%94%E5%A0%86%E6%8E%92%E5%BA%8F/"/>
     <id>http://yoursite.com/2017/03/27/算法复习之——堆排序/</id>
     <published>2017-03-27T04:38:27.000Z</published>
-    <updated>2017-05-11T11:18:23.600Z</updated>
+    <updated>2017-10-30T15:45:36.552Z</updated>
     
     <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>堆排序利用完全二叉树的思维来进行堆排序的实现，但是并不需要我们在排序的时候建立一棵完全二叉树。这一切都是基于数组之间元素的交换来进行的。<br><a id="more"></a></p>
 <h2 id="基础知识"><a href="#基础知识" class="headerlink" title="基础知识"></a>基础知识</h2><h3 id="完全二叉树："><a href="#完全二叉树：" class="headerlink" title="完全二叉树："></a>完全二叉树：</h3><p><img src="http://i1.piimg.com/567571/92099c39300929ee.png" alt=""><br>在完全二叉树中，假如结点从1开始编号，父结点和子结点之间的序号存在如下关系：<br>若父结点序号为i，则孩子结点序号：<br>左孩子——2 <em> i<br>右孩子——2 </em> i+1<br>最后一个非叶子结点的编号——n/2（n为结点总个数）<br><strong>因为数组的下标从0开始，所以在对数组进行堆排序的时候，上述关系变为如下所示：</strong><br><strong>左孩子——2 * i+1</strong><br><strong>右孩子——2 * i+2</strong><br><strong>最后一个非叶子结点的编号——n/2-1</strong></p>
@@ -1333,10 +1327,8 @@ Observable&lt;NewsBean&gt; call(@Query(&quot;type&quot;) String type, @Query(&qu
     
     </summary>
     
-      <category term="算法和数据结构" scheme="http://yoursite.com/categories/%E7%AE%97%E6%B3%95%E5%92%8C%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
     
-    
-      <category term="堆排序" scheme="http://yoursite.com/tags/%E5%A0%86%E6%8E%92%E5%BA%8F/"/>
+      <category term="算法" scheme="http://yoursite.com/tags/%E7%AE%97%E6%B3%95/"/>
     
   </entry>
   
@@ -1345,7 +1337,7 @@ Observable&lt;NewsBean&gt; call(@Query(&quot;type&quot;) String type, @Query(&qu
     <link href="http://yoursite.com/2017/03/22/%E7%AE%97%E6%B3%95%E5%A4%8D%E4%B9%A0%E4%B9%8B%E2%80%94%E2%80%94%E7%9B%B4%E6%8E%A5%E6%8F%92%E5%85%A5%E6%8E%92%E5%BA%8F/"/>
     <id>http://yoursite.com/2017/03/22/算法复习之——直接插入排序/</id>
     <published>2017-03-22T09:10:04.000Z</published>
-    <updated>2017-03-22T09:34:15.875Z</updated>
+    <updated>2017-10-30T15:46:01.482Z</updated>
     
     <content type="html"><![CDATA[<h2 id="直奔主题"><a href="#直奔主题" class="headerlink" title="直奔主题"></a>直奔主题</h2><p>直接插入排序的基本思想：<br>首先将数组的第一个元素看成有序的、长度为1的数组，从第二个元素开始将第二个元素插入到前面的有序数组中合适的位置，使得有序数组变为长度为2的有序数组，以此循环进行，直到遍历完原来数组的所有元素。最终使得整个数组有序。<br><a id="more"></a></p>
 <h2 id="怎么找到插入的合适位置？"><a href="#怎么找到插入的合适位置？" class="headerlink" title="怎么找到插入的合适位置？"></a>怎么找到插入的合适位置？</h2><p>要找到插入的合适位置，可以在前部分有序数组中从后往前搜索，直到找到第一个小于待排元素的元素，合适的位置即为该元素的下一个位置，寻找位置的同时将有序数组中大于待排元素的所有元素后移一位。即<br>a[j+1]=a[j]。</p>
@@ -1384,10 +1376,8 @@ private static void insertSort(int[] a) {
     
     </summary>
     
-      <category term="算法和数据结构" scheme="http://yoursite.com/categories/%E7%AE%97%E6%B3%95%E5%92%8C%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
     
-    
-      <category term="插入排序" scheme="http://yoursite.com/tags/%E6%8F%92%E5%85%A5%E6%8E%92%E5%BA%8F/"/>
+      <category term="算法" scheme="http://yoursite.com/tags/%E7%AE%97%E6%B3%95/"/>
     
   </entry>
   
@@ -1396,7 +1386,7 @@ private static void insertSort(int[] a) {
     <link href="http://yoursite.com/2017/03/22/%E7%AE%97%E6%B3%95%E5%A4%8D%E4%B9%A0%E4%B9%8B%E2%80%94%E2%80%94%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F/"/>
     <id>http://yoursite.com/2017/03/22/算法复习之——快速排序/</id>
     <published>2017-03-22T06:57:58.000Z</published>
-    <updated>2017-03-22T08:03:12.851Z</updated>
+    <updated>2017-10-30T15:45:51.316Z</updated>
     
     <content type="html"><![CDATA[<h2 id="闲扯"><a href="#闲扯" class="headerlink" title="闲扯"></a>闲扯</h2><p>自从上一篇关于Volley的文章之后，被实习折磨的我就基本停止了更博，一方面想急着找实习，另一方面却又一直感觉自己学的知识不是特别扎实，复习了几天也不知道复习的效果到底怎样，加上昨天收到阿里的一面，问得比较基础（全是项目相关）感觉也还算顺利，不过我有种预感，可能挂了，还是一步一步慢慢来吧。<br><a id="more"></a></p>
 <h2 id="言归正传"><a href="#言归正传" class="headerlink" title="言归正传"></a>言归正传</h2><p>先来解释一下快排的基本步骤：</p>
@@ -1458,10 +1448,8 @@ private static void insertSort(int[] a) {
     
     </summary>
     
-      <category term="算法和数据结构" scheme="http://yoursite.com/categories/%E7%AE%97%E6%B3%95%E5%92%8C%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
     
-    
-      <category term="快排" scheme="http://yoursite.com/tags/%E5%BF%AB%E6%8E%92/"/>
+      <category term="算法" scheme="http://yoursite.com/tags/%E7%AE%97%E6%B3%95/"/>
     
   </entry>
   
@@ -1470,7 +1458,7 @@ private static void insertSort(int[] a) {
     <link href="http://yoursite.com/2017/02/28/volley%E5%AD%A6%E4%B9%A0%E4%B9%8B%E7%BD%91%E7%BB%9C%E8%AF%B7%E6%B1%82%E8%BF%87%E7%A8%8B/"/>
     <id>http://yoursite.com/2017/02/28/volley学习之网络请求过程/</id>
     <published>2017-02-28T05:05:28.000Z</published>
-    <updated>2017-04-30T09:55:22.056Z</updated>
+    <updated>2017-10-30T15:44:18.550Z</updated>
     
     <content type="html"><![CDATA[<h2 id="Volley简介"><a href="#Volley简介" class="headerlink" title="Volley简介"></a>Volley简介</h2><p>众所周知，Volley是google在2013年开源的一款异步异步异步http网络请求库，采用Volley进行网络请求非常简单。那么怎样个异步法？最简单的解释就是：<br>使用Volley你不用再像原生的HttpUrlConnection一样new Thread(new runable());新开工作线程这些事Volley都帮你做了。<br>Volley为http请求提供了如下的保障：<br><a id="more"></a></p>
 <ol>
@@ -1690,10 +1678,8 @@ protected void deliverResponse(String response) {
     
     </summary>
     
-      <category term="Android" scheme="http://yoursite.com/categories/Android/"/>
     
-    
-      <category term="volley" scheme="http://yoursite.com/tags/volley/"/>
+      <category term="Android" scheme="http://yoursite.com/tags/Android/"/>
     
   </entry>
   
@@ -1702,7 +1688,7 @@ protected void deliverResponse(String response) {
     <link href="http://yoursite.com/2017/02/20/%E8%87%AA%E5%AE%9A%E4%B9%89view%E5%92%8Cviewgroup/"/>
     <id>http://yoursite.com/2017/02/20/自定义view和viewgroup/</id>
     <published>2017-02-20T13:14:28.000Z</published>
-    <updated>2017-02-22T15:17:01.829Z</updated>
+    <updated>2017-10-30T15:41:30.447Z</updated>
     
     <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>我的上一篇博客对view的绘制过程作了介绍，那么接下来当然是创造自己的view，为了方便描述，下文依然将使用view代表不能包含子内容的控件，用viewgroup代表容器，但是实际上viewgroup也是view（ViewGroup类继承自View类）。由于最近才开始正式探索view方面的知识，所以这几篇文章也是对我学习view的一个记录吧，知识参考自View和ViewGroup源码以及《Android群英传》</p>
 <h2 id="View类的重要方法"><a href="#View类的重要方法" class="headerlink" title="View类的重要方法"></a>View类的重要方法</h2><a id="more"></a>
@@ -1922,10 +1908,8 @@ protected void deliverResponse(String response) {
     
     </summary>
     
-      <category term="Android" scheme="http://yoursite.com/categories/Android/"/>
     
-    
-      <category term="自定义view" scheme="http://yoursite.com/tags/%E8%87%AA%E5%AE%9A%E4%B9%89view/"/>
+      <category term="Android" scheme="http://yoursite.com/tags/Android/"/>
     
   </entry>
   
@@ -1934,7 +1918,7 @@ protected void deliverResponse(String response) {
     <link href="http://yoursite.com/2017/02/19/View%E7%9A%84%E7%BB%98%E5%88%B6%E8%BF%87%E7%A8%8B/"/>
     <id>http://yoursite.com/2017/02/19/View的绘制过程/</id>
     <published>2017-02-19T06:48:05.000Z</published>
-    <updated>2017-05-11T11:16:53.893Z</updated>
+    <updated>2017-10-30T15:44:00.734Z</updated>
     
     <content type="html"><![CDATA[<h2 id="View和ViewGroup简介"><a href="#View和ViewGroup简介" class="headerlink" title="View和ViewGroup简介"></a>View和ViewGroup简介</h2><p>在安卓中，显示的视图可以分为两类，view和viewgroup，而view是所有控件的基类，viewgroup也是继承自view的，不同的是viewgroup可以容纳子view，而view不能再容纳任何子view。而我们平时在布局文件里使用的绝大多数控件，都是view类和viewgroup的子类。<br>viewgroup的子类：各种layout布局，比如linerlayout，framelayout，relativelayout等等。<br>view的子类：各种控件，比如textview，button等等。<br><a id="more"></a><br>这样以来，布局文件里的内容就形成了一棵树状结构，即我们经常谈起的view树：<br><img src="http://ohvhuumh1.bkt.clouddn.com/17-2-19/14968804-file_1487488155000_167a8.png" alt=""></p>
 <p>为了方便描述，下文用view指代控件（不能包含子view），用viewgroup指代容器（可以包含子view）</p>
@@ -2137,10 +2121,8 @@ protected void deliverResponse(String response) {
     
     </summary>
     
-      <category term="Android" scheme="http://yoursite.com/categories/Android/"/>
     
-    
-      <category term="view绘制" scheme="http://yoursite.com/tags/view%E7%BB%98%E5%88%B6/"/>
+      <category term="Android" scheme="http://yoursite.com/tags/Android/"/>
     
   </entry>
   

@@ -6,23 +6,17 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>volley学习之缓存篇 | Distancelin&#39;s blog</title>
+  <title>Tag: Java | Distancelin&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="在前面简单地学习了volley的基本请求过程，那就是先访问缓存，缓存命中且没有过期就直接返回缓存的response，否则就进行网络请求，并对结果进行缓存，接下来再记录一下我对volley缓存部分的学习。
-缓存目录的创建">
-<meta property="og:type" content="article">
-<meta property="og:title" content="volley学习之缓存篇">
-<meta property="og:url" content="http://yoursite.com/2017/05/09/volley学习之缓存的原理/index.html">
+  <meta name="description" content="make amazing happen">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Distancelin's blog">
+<meta property="og:url" content="http://yoursite.com/tags/Java/index.html">
 <meta property="og:site_name" content="Distancelin's blog">
-<meta property="og:description" content="在前面简单地学习了volley的基本请求过程，那就是先访问缓存，缓存命中且没有过期就直接返回缓存的response，否则就进行网络请求，并对结果进行缓存，接下来再记录一下我对volley缓存部分的学习。
-缓存目录的创建">
-<meta property="og:image" content="http://i4.buimg.com/588926/ca850075e724c103.png">
-<meta property="og:updated_time" content="2017-10-30T15:44:10.417Z">
+<meta property="og:description" content="make amazing happen">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="volley学习之缓存篇">
-<meta name="twitter:description" content="在前面简单地学习了volley的基本请求过程，那就是先访问缓存，缓存命中且没有过期就直接返回缓存的response，否则就进行网络请求，并对结果进行缓存，接下来再记录一下我对volley缓存部分的学习。
-缓存目录的创建">
-<meta name="twitter:image" content="http://i4.buimg.com/588926/ca850075e724c103.png">
+<meta name="twitter:title" content="Distancelin's blog">
+<meta name="twitter:description" content="make amazing happen">
   
     <link rel="alternative" href="/atom.xml" title="Distancelin&#39;s blog" type="application/atom+xml">
   
@@ -156,411 +150,60 @@ var _hmt = _hmt || [];
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-volley学习之缓存的原理" class="article article-type-post " itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
+            
   
-    <h1 class="article-title" itemprop="name">
-      volley学习之缓存篇
+  
+    
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2016" class="archive-year">2016</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2016/12/06/Java反射学习笔记/" class="archive-article-date">
+  	<time datetime="2016-12-06T03:59:35.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-12-06</time>
+</a>
+        </div>
+    	 
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2016/12/06/Java反射学习笔记/">Java反射学习笔记</a>
     </h1>
   
 
-        
-        <a href="/2017/05/09/volley学习之缓存的原理/" class="archive-article-date">
-  	<time datetime="2017-05-09T06:20:29.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-05-09</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>在前面简单地学习了volley的基本请求过程，那就是先访问缓存，缓存命中且没有过期就直接返回缓存的response，否则就进行网络请求，并对结果进行缓存，接下来再记录一下我对volley缓存部分的学习。</p>
-<h2 id="缓存目录的创建"><a href="#缓存目录的创建" class="headerlink" title="缓存目录的创建"></a>缓存目录的创建</h2><a id="more"></a>
-<p>缓存文件的创建是在第一次调用Volley.newRequestQueue()的时候,该方法中有如下代码：</p>
-<pre><code>//DEFAULT_CACHE_DIR默认值为“volley”
-File cacheDir = new File(context.getCacheDir(), DEFAULT_CACHE_DIR);
-....
-//创建DiskBasedCache缓存
-RequestQueue queue = new RequestQueue(new DiskBasedCache(cacheDir), network);
-queue.start();
-</code></pre><p>所以，volley是采用名为DiskBasedCache的类来实现缓存功能。<br>跟踪来到DiskBasedCache的构造方法：</p>
-<pre><code>public DiskBasedCache(File rootDirectory) {
-    this(rootDirectory, DEFAULT_DISK_USAGE_BYTES);
-}
-</code></pre><p>DEFAULT_DISK_USAGE_BYTES的定义如下:</p>
-<pre><code>//5MB
- private static final int DEFAULT_DISK_USAGE_BYTES = 5 * 1024 * 1024;
-</code></pre><p>所以volley的默认缓存文件大小为5MB。这是DiskBasedCache中两个参数的构造方法，对缓存目录和缓存大小进行了赋值。</p>
-<pre><code> public DiskBasedCache(File rootDirectory, int maxCacheSizeInBytes) {
-    mRootDirectory = rootDirectory;
-    mMaxCacheSizeInBytes = maxCacheSizeInBytes;
-}
-</code></pre><p>而缓存文件的真正创建操作，是在Volley.newRequestQueue()中的queue.start()方法内部进行：</p>
-<pre><code>public void start() {
-    stop();  // Make sure any currently running dispatchers are stopped.
-    // CacheDispatcher是继承自Thread的类，负责从缓存中读取数据
-    mCacheDispatcher = new CacheDispatcher(mCacheQueue, mNetworkQueue, mCache, mDelivery);
-    mCacheDispatcher.start();
-    ...
-}
-</code></pre><p>CacheDispatcher是继承自Thread的类，负责从缓存中读取数据，它的run()方法如下：</p>
-<pre><code>  @Override
-public void run() {
-    if (DEBUG) VolleyLog.v(&quot;start new dispatcher&quot;);
-    Process.setThreadPriority(Process.THREAD_PRIORITY_BACKGROUND);
-    mCache.initialize();
-    ...
-}
-</code></pre><p>mCache.initialize()进行缓存目录的创建：</p>
-<pre><code>@Override
-public synchronized void initialize() {
-    //这里新建名为volley的文件夹
-    if (!mRootDirectory.exists()) {
-        if (!mRootDirectory.mkdirs()) {
-            VolleyLog.e(&quot;Unable to create cache dir %s&quot;, mRootDirectory.getAbsolutePath());
-        }
-        return;
-    }
-...
-}
-</code></pre><p>以上进行了缓存目录的创建，在DDMS的file explore中对应了如下目录：<br><img src="http://i4.buimg.com/588926/ca850075e724c103.png" alt=""></p>
-<h2 id="响应结果的cacheEntry创建"><a href="#响应结果的cacheEntry创建" class="headerlink" title="响应结果的cacheEntry创建"></a>响应结果的cacheEntry创建</h2><p>缓存目录创建好了之后，在每次网络请求完成之后，就可以根据网络请求获得的response进行对应的缓存操作，由于具体的缓存文件创建和写入操作是在网络请求之后，所以缓存操作应该位于网络请求线程当中，来到mNetworkDispatcher中可以看到如下代码：</p>
-<pre><code>NetworkResponse networkResponse = mNetwork.performRequest(request);      
-           // 解析，并创建response.cacheEntry
-           Response&lt;?&gt; response = request.parseNetworkResponse(networkResponse);
-
-           if (request.shouldCache() &amp;&amp; response.cacheEntry != null) {
-               mCache.put(request.getCacheKey(), response.cacheEntry);
-               request.addMarker(&quot;network-cache-written&quot;);
-           }
-</code></pre><p>第一个条件可以通过request.shouldCache(boolean shouldCache)来设置，第二个条件不为空。<br>mCache.put(request.getCacheKey(), response.cacheEntry)负责写入文件：<br>参数1：<br>request.getCacheKey()返回我们构建request时候传入的url(所以volley将request的url作为key来进行缓存)：</p>
-<pre><code> public String getCacheKey() {
-    return getUrl();
-}
-</code></pre><p>参数2：<br>response.cacheEntry的创建过程如下：</p>
-<pre><code>public static Cache.Entry parseCacheHeaders(NetworkResponse response) {
-    long now = System.currentTimeMillis();
-    //map保存header
-    Map&lt;String, String&gt; headers = response.headers;
-    ...
-    long softExpire = 0;
-    long finalExpire = 0;
-    long maxAge = 0;
-    ...
-    headerValue = headers.get(&quot;Date&quot;);
-    if (headerValue != null) {
-        serverDate = parseDateAsEpoch(headerValue);
-    }
-    //获得响应头中的Cache-Control字段，如Cache-Control:max-age=100,...
-    headerValue = headers.get(&quot;Cache-Control&quot;);
-    if (headerValue != null) {
-        hasCacheControl = true;
-        String[] tokens = headerValue.split(&quot;,&quot;);
-        for (int i = 0; i &lt; tokens.length; i++) {
-            String token = tokens[i].trim();
-            //不缓存
-            if (token.equals(&quot;no-cache&quot;) || token.equals(&quot;no-store&quot;)) {
-                mustRevalidate = true;
-            //取得服务器返回的Cache-Control的max-age值，单位为秒
-            } else if (token.startsWith(&quot;max-age=&quot;)) {
-                try {
-                    maxAge = Long.parseLong(token.substring(8));
-                } catch (Exception e) {
-                }
-            } 
-            ...
-        }
-    }
-    ...
-    //根据max-age的值计算finalExpire
-    if (hasCacheControl) {
-        //毫秒，如当前时间为10，maxAge=40s,那么过期时间为10+40*1000
-        softExpire = now（毫秒） + maxAge * 1000;
-        finalExpire = mustRevalidate
-                ? softExpire
-                : softExpire + staleWhileRevalidate * 1000;
-    } 
-    ...
-    //构建entry
-    Cache.Entry entry = new Cache.Entry();
-    //响应体
-    entry.data = response.data;
-    entry.etag = serverEtag;
-    entry.softTtl = softExpire;
-    //该缓存的过期时间点
-    entry.ttl = finalExpire;
-    entry.serverDate = serverDate;
-    entry.lastModified = lastModified;
-    //响应头
-    entry.responseHeaders = headers;
-
-    return entry;
-}
-</code></pre><p>上面有些代码的省略，这里的entry是根据response header来进行创建的，从最后entry的赋值可以知道，entry中主要保存了response的body、header、以及通过header计算而来的缓存过期时间，这样在再次访问该缓存的时候可以直接从entry中读取而不用每次从header中进行解析计算。</p>
-<h2 id="将缓存写入文件"><a href="#将缓存写入文件" class="headerlink" title="将缓存写入文件"></a>将缓存写入文件</h2><p>上一步根据返回的response计算出了缓存的过期时间和其他信息（保存在entry中），接下来就是以url为key,以entry为value将结果写入文件：</p>
-<pre><code>mCache.put(request.getCacheKey(), response.cacheEntry)
-</code></pre><p>实现如下：</p>
-<pre><code>public synchronized void put(String key, Entry entry) {
-    //写之前判断缓存大小是否超过最大值，超过则删除部分缓存
-    pruneIfNeeded(entry.data.length);
-    //通过key找到对应的缓存文件，没有则创建
-    File file = getFileForKey(key);
-    try {
-        BufferedOutputStream fos = new BufferedOutputStream(new FileOutputStream(file));
-        //将entry构造成只包含header的对象，不包含body，但包含body的大小
-        CacheHeader e = new CacheHeader(key, entry);
-        //将header写入文件
-        boolean success = e.writeHeader(fos);
-        if (!success) {
-            fos.close();
-            VolleyLog.d(&quot;Failed to write header for %s&quot;, file.getAbsolutePath());
-            throw new IOException();
-        }
-        //将body写入文件
-        fos.write(entry.data);
-        fos.close();
-        //将&lt;key,cacheHeader&gt;存入linkedHashMap中
-        putEntry(key, e);
-        return;
-    } catch (IOException e) {
-    }
-    boolean deleted = file.delete();
-    if (!deleted) {
-        VolleyLog.d(&quot;Could not clean up file %s&quot;, file.getAbsolutePath());
-    }
-}
-</code></pre><p>除了将header和body写入到文件之外，putEntry(key, e)方法会将<key,e>存入名为mEntries的linkedHashMap中，这个linkedhashmap用来保存最近使用过的元素，当缓存超过最大容量的时候，就会通过e.key来获得对应的缓存文件，进而删除。实现了LRU算法的效果。这一过程如下：</key,e></p>
-<pre><code>private void pruneIfNeeded(int neededSpace) {
-   //没有超过最大容量就直接返回
-   if ((mTotalSize + neededSpace) &lt; mMaxCacheSizeInBytes) {
-       return;
-   }
-   if (VolleyLog.DEBUG) {
-       VolleyLog.v(&quot;Pruning old cache entries.&quot;);
-   }
-
-   long before = mTotalSize;
-   int prunedFiles = 0;
-   long startTime = SystemClock.elapsedRealtime();
-   //获取迭代器
-   Iterator&lt;Map.Entry&lt;String, CacheHeader&gt;&gt; iterator = mEntries.entrySet().iterator();
-   while (iterator.hasNext()) {
-       Map.Entry&lt;String, CacheHeader&gt; entry = iterator.next();
-       //获取之前putEntry(key,e)保存的e
-       CacheHeader e = entry.getValue();
-       //根据e.key找到缓存文件并删除
-       boolean deleted = getFileForKey(e.key).delete();
-       if (deleted) {
-           //删除成功则更新size
-           mTotalSize -= e.size;
-       } else {
-          VolleyLog.d(&quot;Could not delete cache entry for key=%s, filename=%s&quot;,
-                  e.key, getFilenameForKey(e.key));
-       }
-       //从linedhashmap中删除当前iterator所指的元素
-       iterator.remove();
-       prunedFiles++;
-       //如果删除之后所剩占用的总空间&lt;最大容量*0.9(常量值为0.9f)则跳过该删除操作
-       if ((mTotalSize + neededSpace) &lt; mMaxCacheSizeInBytes * HYSTERESIS_FACTOR) {
-           break;
-       }
-   }
-
-   if (VolleyLog.DEBUG) {
-       VolleyLog.v(&quot;pruned %d files, %d bytes, %d ms&quot;,
-               prunedFiles, (mTotalSize - before), SystemClock.elapsedRealtime() - startTime);
-   }
-</code></pre><p>所以在缓存方面，volley使用了linkedHashMap来保存<key,cacheheader>,通过遍历cacheHeader并统计所有cacheHeader.size的和便得到了当前所有缓存文件的总和，当缓存文件超过总容量的时候，再删除缓存文件直到文件总和等于0.9*maxSize。</key,cacheheader></p>
-<p>通过linkedHashMap来保存<key,cacheheader>的原因是因为linkedHashMap控制元素的遍历顺序：</key,cacheheader></p>
-<pre><code>/** Map of the Key, CacheHeader pairs */
-private final Map&lt;String, CacheHeader&gt; mEntries =
-        //ture代表按照访问顺序排序
-        new LinkedHashMap&lt;String, CacheHeader&gt;(16, .75f, true);
-</code></pre><p>第三个参数true的效果是：<br>最近访问的元素会方法linkedHashMap的最后面，所以在删除文件的时候就可以直接删除第一个遍历到的元素对应的文件就行了，它就是最近最久未被访问的元素(LRU算法的思想)。</p>
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>volley的请求遵循以下步骤：</p>
-<ol>
-<li>将请求添加到缓存请求队列(由阻塞队列实现)</li>
-<li>由cacheDispatcher根据请求的url作为key，在linkedHashmap中查找是否有值</li>
-<li>值为空，则将请求添加到网络请求队列，值不为空但是过期也将添加到网络请求队列，值不为空且没有过期则直接返回缓存结果</li>
-<li>网络请求执行，并缓存执行结果  </li>
-</ol>
-<p><strong>DiskBasedCache中名为entries的linkedHashmap中，保存的元素和文件缓存一一对应，这样在判断缓存是否存在的时候，就可以在运行时直接读取linkedHashmap而不用每次去读取文件来判断(读取内存当然比读取磁盘更快)</strong></p>
-<pre><code>@Override
-public synchronized Entry get(String key) {
-    CacheHeader entry = mEntries.get(key);
-    // if the entry does not exist, return.
-    if (entry == null) {
-        return null;
-    }
-    ...
-}
-</code></pre>
-      
-
-      
-        <div class="page-reward">
-          <a href="javascript:;" class="page-reward-btn tooltip-top">
-            <div class="tooltip tooltip-east">
-            <span class="tooltip-item">
-              赏
-            </span>
-            <span class="tooltip-content">
-              <span class="tooltip-text">
-                <span class="tooltip-inner">
-                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
-                  <div class="reward-box">
-                    
-                    <div class="reward-box-item">
-                      <img class="reward-img" src="/Assets/alipay.jpg">
-                      <span class="reward-type">支付宝</span>
-                    </div>
-                    
-                    
-                  </div>
-                </span>
-              </span>
-            </span>
-          </div>
-          </a>
-        </div>
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
+        <div class="article-info info-on-right">
+          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Android</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Java</a>
         		</li>
       		
 		</ul>
 	</div>
 
-      
+          
 
-      
-
-      
-        
-<div class="share-btn share-icons tooltip-left">
-  <div class="tooltip tooltip-east">
-    <span class="tooltip-item">
-      <a href="javascript:;" class="share-sns share-outer">
-        <i class="icon icon-share"></i>
-      </a>
-    </span>
-    <span class="tooltip-content">
-      <div class="share-wrap">
-        <div class="share-icons">
-          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
-            <i class="icon icon-weibo"></i>
-          </a>
-          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
-            <i class="icon icon-weixin"></i>
-          </a>
-          <a class="qq share-sns" href="javascript:;" data-type="qq">
-            <i class="icon icon-qq"></i>
-          </a>
-          <a class="douban share-sns" href="javascript:;" data-type="douban">
-            <i class="icon icon-douban"></i>
-          </a>
-          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
-            <i class="icon icon-qzone"></i>
-          </a>
-          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
-            <i class="icon icon-facebook"></i>
-          </a>
-          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
-            <i class="icon icon-twitter"></i>
-          </a>
-          <a class="google share-sns" href="javascript:;" data-type="google">
-            <i class="icon icon-google"></i>
-          </a>
         </div>
-      </div>
-    </span>
-  </div>
-</div>
-
-<div class="page-modal wx-share js-wx-box">
-    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2017/05/09/volley学习之缓存的原理/" alt="微信分享二维码">
-    </div>
-</div>
-
-<div class="mask js-mask"></div>
-      
-      <div class="clearfix"></div>
-    </div>
+        <div class="clearfix"></div>
+    </header>
   </div>
 </article>
-
-  
-<nav id="article-nav">
-  
-    <a href="/2017/05/11/官方文档学习之-高效加载大图/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          官方文档学习之-高效加载大图
-        
-      </div>
-    </a>
   
   
-    <a href="/2017/04/26/安卓中的注解/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">安卓中的注解</div>
-      <i class="icon-circle-right"></i>
-    </a>
-  
-</nav>
-
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-  
-  
+    </div></section>
   
 
-  
-  <div id="SOHUCS" sid="volley学习之缓存的原理" ></div> 
-<script type="text/javascript"> 
-window.YiliaChangyanWrap = function() {
-    var appid = "cyti0i7zB"; 
-    var conf = "prod_56be5396f8982981a32b188c408ce770"; 
-    var width = window.innerWidth || document.documentElement.clientWidth; 
-    if (width < 960) { 
-    window.document.write('<script id="changyan_mobile_js" charset="utf-8" type="text/javascript" src="//changyan.sohu.com/upload/mobile/wap-js/changyan_mobile.js?client_id=' + appid + '&conf=' + conf + '"><\/script>'); } else { var loadJs=function(d,a){var c=document.getElementsByTagName("head")[0]||document.head||document.documentElement;var b=document.createElement("script");b.setAttribute("type","text/javascript");b.setAttribute("charset","UTF-8");b.setAttribute("src",d);if(typeof a==="function"){if(window.attachEvent){b.onreadystatechange=function(){var e=b.readyState;if(e==="loaded"||e==="complete"){b.onreadystatechange=null;a()}}}else{b.onload=a}}c.appendChild(b)};loadJs("//changyan.sohu.com/upload/changyan.js",function(){window.changyan.api.config({appid:appid,conf:conf})}); }
-}
-</script>
-  
-
-  
-
-  
+    
 
 
           </div>
@@ -583,9 +226,9 @@ window.YiliaChangyanWrap = function() {
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: true,
+		isPost: false,
 		isArchive: false,
-		isTag: false,
+		isTag: true,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
