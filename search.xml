@@ -3,6 +3,13 @@
   
     
     <entry>
+      <title><![CDATA[深入理解计算机系统思维导图]]></title>
+      <url>%2F2017%2F10%2F23%2F%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F%E6%80%9D%E7%BB%B4%E5%AF%BC%E5%9B%BE%2F</url>
+      <content type="text"><![CDATA[初步阅读了《深入理解计算机系统》，根据自己的情况，将内容和收获总结为以下导图：]]></content>
+    </entry>
+
+    
+    <entry>
       <title><![CDATA[DCL的简单分析]]></title>
       <url>%2F2017%2F10%2F20%2FDCL%E7%9A%84%E7%AE%80%E5%8D%95%E5%88%86%E6%9E%90%2F</url>
       <content type="text"><![CDATA[DCL是单例模式的懒汉式实现方式之一，全称为Double Check Lock，和饿汉式单例实现相比，它的单例对象实例化是在第一次调用获取单例的时候。与饿汉式单例模式一样，它也是线程安全的。很重要的一点就是关键字volatile的使用，下面从为什么volatile可以保证DCL的线程安全进行学习总结。 DCL中第二次判空的作用不使用volatile的DCL代码如下： public class SingleTon { public static SingleTon mInstance; //构造方法私有化 private SingleTon() { } public static SingleTon getInstance() { if (mInstance == null) { synchronized (SingleTon.class) { if (mInstance == null) { mInstance = new SingleTon(); } } } return mInstance; } } 第一次判空是为了避免不必要的同步，不用每次调用getInstance(）都进行同步。 第二次判空是为了在实例为空的时候创建对象 第二次判空必不可少，若在去掉第二层判空的情况下出现以下情况： 线程1执行完第一层判断之后，得到mInstance为空，cpu调度到线程2 线程2执行第一层判断，mInstance也为空，并执行同步块，完成了mInstance的实例化，此时mInstance已经不为空 cpu调度到线程1，从上次线程1中断的地方继续执行(第一层判空之后)，注意此在时线程1中判断的mInstance仍然为空，线程1继续执行实例化操作 这样mInstance被重复初始化了两次，而且两次的mInstance不是同一个实例。所以应该在同步块里进行第二层判空。 不使用volatile为什么会不安全？java中为引用赋值可以理解为三个步骤： mInstance=new SingleTon(); 分配内存空间 初始化对象 将内存空间的地址赋值给对应的引用 由于jvm的指令重排序，2、3两个步骤可能颠倒，若2、3被重排序，那么考虑如下情况： 线程1进行第一次判断为空，进入同步块，进行第二次判断，也为空，开始创建对象并赋值给mInstacne. JVM在堆上为对象分配空间 将对象的内存地址赋值给mInstance，那么此时mInstance已不等于null了 此时线程2执行了第一次判断(因为第一次判断不在syn块中，所以可以执行)，得到mInstance不为空，然后直接返回了mInstance，但此时mInstance所引用的对象还没有初始化，线程2直接使用的时候就会出现异常。 上述问题的原因是线程2拿到了单例对象的引用，但是对象却没有被初始化。根本原因是因为指令重排序问题，假如禁止了指令重排序，保证对象的初始化在引用赋值之前，那么只要线程2判断mInstance不为空，那么单例对象肯定已经完成了初始化。 禁止JVM指令重排序就可以采用volatile关键字，底层通过内存屏障实现。只需把mInstance声明为volatile类型。 public class SingleTon { public static volatile SingleTon mInstance; //构造方法私有化 private SingleTon() { } public static SingleTon getInstance() { if (mInstance == null) { synchronized (SingleTon.class) { if (mInstance == null) { mInstance = new SingleTon(); } } } return mInstance; } } 静态内部类实现单例因为静态内部类不会在外部类加载的时候被加载，而是在第一次调用getInstance()的时候才加载，这种方式既实现了懒汉式单例，又线程安全,关键是非常简洁： public class SingleTon { private SingleTon() { } public static SingleTon getInstance() { return SingletonHolder.mInstance; } static class SingletonHolder{ static final SingleTon mInstance=new SingleTon(); } }]]></content>
