@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-11-13T15:59:38.369Z</updated>
+  <updated>2017-11-13T16:02:42.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -20,9 +20,9 @@
     <link href="http://yoursite.com/2017/11/07/GestureDetector%E4%B8%8Eview%E7%9A%84%E6%97%8B%E8%BD%AC/"/>
     <id>http://yoursite.com/2017/11/07/GestureDetector与view的旋转/</id>
     <published>2017-11-07T14:06:53.000Z</published>
-    <updated>2017-11-13T15:59:38.369Z</updated>
+    <updated>2017-11-13T16:02:42.000Z</updated>
     
-    <content type="html"><![CDATA[<p>自定义view除了在onTouchEvent里处理交互之外，还可以使用GestureDetector来接管用户的手势操作，将手势转接给GestureDector来处理，其中内置了许多手势的监听，比如滑动、双击等事件。这里记录下使用GestureDetector来实现view跟随手指旋转的思路。<br>核心的思路是监听手指在view上的滑动，根据手指滑动的方向来决定view应该顺时针还是逆时针旋转，至于单纯的旋转的话可以直接使用view的setRotation()传入角度，旋转角度的确定可大可小，在效果上看起来只是旋转灵敏度的差异，所以关键是旋转方向的判断。</p>
+    <content type="html"><![CDATA[<p>自定义view除了在onTouchEvent里处理交互之外，还可以使用GestureDetector来接管用户的手势操作，将手势转接给GestureDector来处理，其中内置了许多手势的监听，比如滑动、双击等事件。这里记录下使用GestureDetector来实现view跟随手指旋转的思路。<br><a id="more"></a><br>核心的思路是监听手指在view上的滑动，根据手指滑动的方向来决定view应该顺时针还是逆时针旋转，至于单纯的旋转的话可以直接使用view的setRotation()传入角度，旋转角度的确定可大可小，在效果上看起来只是旋转灵敏度的差异，所以关键是旋转方向的判断。</p>
 <h2 id="旋转方向的判断"><a href="#旋转方向的判断" class="headerlink" title="旋转方向的判断"></a>旋转方向的判断</h2><p>view在屏幕上占据的始终是一块矩形区域，为了方便表述，在view里面画了一个圆：<br><img src="https://ws1.sinaimg.cn/large/005Ra7Fdgy1flb2y9lrhqj30ky0d8aa7.jpg" alt=""><br>如图，在某一时刻，如果手指在屏幕上按照上图红线里滑动了一段距离，很明显这时候view应该顺时针旋转，下面推导如何得出顺时针旋转这个结论:</p>
 <ol>
 <li>连接滑动手势的终点和view的中心点<br><img src="https://ws1.sinaimg.cn/large/005Ra7Fdgy1flb36oh5hpj30q40cbgls.jpg" alt=""></li>
@@ -76,7 +76,7 @@ public boolean onScroll(MotionEvent e1, MotionEvent e2, float distanceX, float d
     
     <summary type="html">
     
-      &lt;p&gt;自定义view除了在onTouchEvent里处理交互之外，还可以使用GestureDetector来接管用户的手势操作，将手势转接给GestureDector来处理，其中内置了许多手势的监听，比如滑动、双击等事件。这里记录下使用GestureDetector来实现view
+      &lt;p&gt;自定义view除了在onTouchEvent里处理交互之外，还可以使用GestureDetector来接管用户的手势操作，将手势转接给GestureDector来处理，其中内置了许多手势的监听，比如滑动、双击等事件。这里记录下使用GestureDetector来实现view跟随手指旋转的思路。&lt;br&gt;
     
     </summary>
     
