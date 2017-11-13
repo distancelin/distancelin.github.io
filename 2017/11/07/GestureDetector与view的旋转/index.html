@@ -6,17 +6,26 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives: 2016/12 | Distancelin&#39;s blog</title>
+  <title>GestureDetector与view的旋转 | Distancelin&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="make amazing happen">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Distancelin's blog">
-<meta property="og:url" content="http://yoursite.com/archives/2016/12/index.html">
+  <meta name="description" content="自定义view除了在onTouchEvent里处理交互之外，还可以使用GestureDetector来接管用户的手势操作，将手势转接给GestureDector来处理，其中内置了许多手势的监听，比如滑动、双击等事件。这里记录下使用GestureDetector来实现view跟随手指旋转的思路。核心的思路是监听手指在view上的滑动，根据手指滑动的方向来决定view应该顺时针还是逆时针旋转，至于单纯">
+<meta property="og:type" content="article">
+<meta property="og:title" content="GestureDetector与view的旋转">
+<meta property="og:url" content="http://yoursite.com/2017/11/07/GestureDetector与view的旋转/index.html">
 <meta property="og:site_name" content="Distancelin's blog">
-<meta property="og:description" content="make amazing happen">
+<meta property="og:description" content="自定义view除了在onTouchEvent里处理交互之外，还可以使用GestureDetector来接管用户的手势操作，将手势转接给GestureDector来处理，其中内置了许多手势的监听，比如滑动、双击等事件。这里记录下使用GestureDetector来实现view跟随手指旋转的思路。核心的思路是监听手指在view上的滑动，根据手指滑动的方向来决定view应该顺时针还是逆时针旋转，至于单纯">
+<meta property="og:image" content="https://ws1.sinaimg.cn/large/005Ra7Fdgy1flb2y9lrhqj30ky0d8aa7.jpg">
+<meta property="og:image" content="https://ws1.sinaimg.cn/large/005Ra7Fdgy1flb36oh5hpj30q40cbgls.jpg">
+<meta property="og:image" content="https://ws1.sinaimg.cn/large/005Ra7Fdgy1flb3ff3i73j30i20c13ys.jpg">
+<meta property="og:image" content="https://ws1.sinaimg.cn/large/005Ra7Fdgy1flb3eusow5j30ls0cfaab.jpg">
+<meta property="og:image" content="https://ws1.sinaimg.cn/large/005Ra7Fdgy1flb3wvtsltj30qq0d4my3.jpg">
+<meta property="og:image" content="https://ws1.sinaimg.cn/large/005Ra7Fdgy1flb4d1o1unj30r607y0u6.jpg">
+<meta property="og:image" content="https://ws1.sinaimg.cn/large/005Ra7Fdgy1flgw07r5uoj30i40c3glh.jpg">
+<meta property="og:updated_time" content="2017-11-13T15:59:38.369Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Distancelin's blog">
-<meta name="twitter:description" content="make amazing happen">
+<meta name="twitter:title" content="GestureDetector与view的旋转">
+<meta name="twitter:description" content="自定义view除了在onTouchEvent里处理交互之外，还可以使用GestureDetector来接管用户的手势操作，将手势转接给GestureDector来处理，其中内置了许多手势的监听，比如滑动、双击等事件。这里记录下使用GestureDetector来实现view跟随手指旋转的思路。核心的思路是监听手指在view上的滑动，根据手指滑动的方向来决定view应该顺时针还是逆时针旋转，至于单纯">
+<meta name="twitter:image" content="https://ws1.sinaimg.cn/large/005Ra7Fdgy1flb2y9lrhqj30ky0d8aa7.jpg">
   
     <link rel="alternative" href="/atom.xml" title="Distancelin&#39;s blog" type="application/atom+xml">
   
@@ -150,98 +159,243 @@ var _hmt = _hmt || [];
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-GestureDetector与view的旋转" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2016" class="archive-year">2016</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2016/12/17/mvp学习笔记/" class="archive-article-date">
-  	<time datetime="2016-12-17T13:17:14.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-12-17</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/12/17/mvp学习笔记/">mvp学习笔记</a>
+    <h1 class="article-title" itemprop="name">
+      GestureDetector与view的旋转
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2017/11/07/GestureDetector与view的旋转/" class="archive-article-date">
+  	<time datetime="2017-11-07T14:06:53.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-07</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>自定义view除了在onTouchEvent里处理交互之外，还可以使用GestureDetector来接管用户的手势操作，将手势转接给GestureDector来处理，其中内置了许多手势的监听，比如滑动、双击等事件。这里记录下使用GestureDetector来实现view跟随手指旋转的思路。<br>核心的思路是监听手指在view上的滑动，根据手指滑动的方向来决定view应该顺时针还是逆时针旋转，至于单纯的旋转的话可以直接使用view的setRotation()传入角度，旋转角度的确定可大可小，在效果上看起来只是旋转灵敏度的差异，所以关键是旋转方向的判断。</p>
+<h2 id="旋转方向的判断"><a href="#旋转方向的判断" class="headerlink" title="旋转方向的判断"></a>旋转方向的判断</h2><p>view在屏幕上占据的始终是一块矩形区域，为了方便表述，在view里面画了一个圆：<br><img src="https://ws1.sinaimg.cn/large/005Ra7Fdgy1flb2y9lrhqj30ky0d8aa7.jpg" alt=""><br>如图，在某一时刻，如果手指在屏幕上按照上图红线里滑动了一段距离，很明显这时候view应该顺时针旋转，下面推导如何得出顺时针旋转这个结论:</p>
+<ol>
+<li>连接滑动手势的终点和view的中心点<br><img src="https://ws1.sinaimg.cn/large/005Ra7Fdgy1flb36oh5hpj30q40cbgls.jpg" alt=""></li>
+</ol>
+<p>2.作出1中线段的垂线<br><img src="https://ws1.sinaimg.cn/large/005Ra7Fdgy1flb3ff3i73j30i20c13ys.jpg" alt=""></p>
+<p>这样看起来还是不够明显，继续将三条线平移到下图的位置：<br><img src="https://ws1.sinaimg.cn/large/005Ra7Fdgy1flb3eusow5j30ls0cfaab.jpg" alt=""><br>这样就很清晰了，其实那条垂线就相当于作了一条圆的切线，通过判断手指滑动方向与圆切线方向的夹角，就能够得出，view应该向哪边旋转了。<br>从图中可以看到，判断夹角的时候需要首先确定以切线的顺时针还是逆时针为基准，这里就以切线顺时针为基准，那判断方式就应该是：</p>
+<ul>
+<li>. 手指滑动方向与切线方向夹角&lt;90度，顺时针旋转</li>
+<li>. 手指滑动方向与切线方向夹角&gt;90度，逆时针旋转</li>
+</ul>
+<p>计算两条有方向的线之间的夹角，那自然就需要用到数学里向量的概念了。<br>手指滑动(图中红线)作为向量a,顺时针切线(图中黄线)作为向量b。根据向量的数量积公式<br>a <em> b =|a| </em> |b| * cosAOB.<br>可见只需要根据数量积的正负，就可以判断夹角是钝角还是锐角了。</p>
+<h2 id="GestureDetector的onScroll"><a href="#GestureDetector的onScroll" class="headerlink" title="GestureDetector的onScroll()"></a>GestureDetector的onScroll()</h2><p>GestureDetector中的onScroll()封装了手指滑动的四个参数，官方的对参数的解释如下：<br><img src="https://ws1.sinaimg.cn/large/005Ra7Fdgy1flb3wvtsltj30qq0d4my3.jpg" alt="">  </p>
+<ol>
+<li>手指按下时触发ACTION_DOWN的MotionEvent。</li>
+<li>手指在屏幕上滑动期间触发ACTION_MOVE的MotionEvent</li>
+</ol>
+<p>剩下两个参数在实验中的结果如下：<br><img src="https://ws1.sinaimg.cn/large/005Ra7Fdgy1flb4d1o1unj30r607y0u6.jpg" alt=""></p>
+<p>因为在滑动过程中，onScroll()会多次调用，每次调用都会有新的MotionEvent，因为ACTIOON_MOVE在不断触发，打印前后两次MotionEvent的x、y坐标以及对应的distanceX和distanceY参数，根据上图可以分析得出onScroll()里的后两个参数分别为：  </p>
+<ol>
+<li>distanceX——上一次滑动event的x减去本次滑动event的x坐标</li>
+<li>distanceY——上一次滑动event的y减去本次滑动event的y坐标</li>
+</ol>
+<p>那就等价于起点坐标减去了终点坐标，那自然而然向量a(distanceX,distanceY)，就对应了我们所需要的a向量了。<br>已知了半径所在的向量，求切线所在的向量就很容易了，因为二者相互垂直，根据垂向量的特性，假设半径所在向量为(x,y)，那么切线所在向量就可以是(y,-x)或者(-y,x)，对应到图中，<br><img src="https://ws1.sinaimg.cn/large/005Ra7Fdgy1flgw07r5uoj30i40c3glh.jpg" alt=""><br>向量2(x,y)，向量3就应该是(y,-x)，因为view的坐标轴正方向为右和下，明显图里的2向量x&gt;0,y&gt;0；所以不难得出，3向量的横坐标&gt;0,纵坐标&lt;0，所以应该是(y,-x)。<br>有了这个结论，就只需要求出2向量就可以得出我们所需要的b向量，也就是3.</p>
+<p>根据onScroll()的参数不难得到，2向量的计算方法：</p>
+<pre><code>@Override
+public boolean onScroll(MotionEvent e1, MotionEvent e2, float distanceX, float distanceY) {
+    float x,y,vectorX,vectorY,rotationDerection;
+    x=e2.getX();
+    y=e2.getY();
+    vectorX = x - mRectBounds.centerX();
+    vectorY = y - mRectBounds.centerY();
+    rotationDerection = calDotProduct(distanceX,distanceY,vectorX,vectorY);
+    double rotateDegree = calRotateDegree(e1,e2);
+    setRotation((float) (getRotation() +rotationDerection * rotateDegree));
+    return true;
+}
+</code></pre><p>e2对应每次的ACTION_MOVE，起点坐标-终点坐标就得到了2向量(vectorX,vectorY),所以b向量就等于<br>(vectorY,-vectorX)。到此</p>
+<ul>
+<li>a=(distanceX,distanceY)  </li>
+<li>b=(vectorY,-vectorX)</li>
+</ul>
+<p>可以求得数量积，进而得到旋转方向了。</p>
+<pre><code>  private float calDotProduct(float distanceX, float distanceY, float vectorX, float vectorY) {
+    float verticalX,verticalY;
+    verticalX = vectorY;
+    verticalY = -vectorX;
+    float sign = distanceX * verticalX + distanceY * verticalY;
+    return Math.signum(sign);
+}
+</code></pre>
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/Assets/alipay.jpg">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Android</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">view</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2016/12/06/Java反射学习笔记/" class="archive-article-date">
-  	<time datetime="2016-12-06T03:59:35.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-12-06</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/12/06/Java反射学习笔记/">Java反射学习笔记</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Java</a>
+        			<a href="/categories/Android//" class="article-tag-list-link color3">Android</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2017/11/07/GestureDetector与view的旋转/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
   
   
-    </div></section>
+    <a href="/2017/10/23/深入理解计算机系统思维导图/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">深入理解计算机系统思维导图</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+  
+  
   
 
-    
+  
+  <div id="SOHUCS" sid="GestureDetector与view的旋转" ></div> 
+<script type="text/javascript"> 
+window.YiliaChangyanWrap = function() {
+    var appid = "cyti0i7zB"; 
+    var conf = "prod_56be5396f8982981a32b188c408ce770"; 
+    var width = window.innerWidth || document.documentElement.clientWidth; 
+    if (width < 960) { 
+    window.document.write('<script id="changyan_mobile_js" charset="utf-8" type="text/javascript" src="//changyan.sohu.com/upload/mobile/wap-js/changyan_mobile.js?client_id=' + appid + '&conf=' + conf + '"><\/script>'); } else { var loadJs=function(d,a){var c=document.getElementsByTagName("head")[0]||document.head||document.documentElement;var b=document.createElement("script");b.setAttribute("type","text/javascript");b.setAttribute("charset","UTF-8");b.setAttribute("src",d);if(typeof a==="function"){if(window.attachEvent){b.onreadystatechange=function(){var e=b.readyState;if(e==="loaded"||e==="complete"){b.onreadystatechange=null;a()}}}else{b.onload=a}}c.appendChild(b)};loadJs("//changyan.sohu.com/upload/changyan.js",function(){window.changyan.api.config({appid:appid,conf:conf})}); }
+}
+</script>
+  
+
+  
+
+  
 
 
           </div>
@@ -264,8 +418,8 @@ var _hmt = _hmt || [];
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
