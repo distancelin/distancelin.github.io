@@ -6,21 +6,25 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>toolbar+tablayout分割线处理 | Distancelin&#39;s blog</title>
+  <title>《图解http》笔记 | Distancelin&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="有一段时间没有更博了，期末考试结束之后学习到的基本都是零散的小知识，总觉得没什么必要写在博客里，不过现在看来，有些东西不记录的确很快就会忘记。在这里记录一下最近使用tablayout+toolbar+drawerlayout中遇到的问题。tablayout的基本使用可以参考这篇文章tablayout的基本使用drawerlayout的使用可以参考如下文章drawerlayout简单使用">
+  <meta name="description" content="body和header之间以回车换行符分割，即CR+LF">
 <meta property="og:type" content="article">
-<meta property="og:title" content="toolbar+tablayout分割线处理">
-<meta property="og:url" content="http://yoursite.com/2017/01/26/toolbar-tablayout分割线处理/index.html">
+<meta property="og:title" content="《图解http》笔记">
+<meta property="og:url" content="http://yoursite.com/2018/01/13/《图解http》笔记/index.html">
 <meta property="og:site_name" content="Distancelin's blog">
-<meta property="og:description" content="有一段时间没有更博了，期末考试结束之后学习到的基本都是零散的小知识，总觉得没什么必要写在博客里，不过现在看来，有些东西不记录的确很快就会忘记。在这里记录一下最近使用tablayout+toolbar+drawerlayout中遇到的问题。tablayout的基本使用可以参考这篇文章tablayout的基本使用drawerlayout的使用可以参考如下文章drawerlayout简单使用">
-<meta property="og:image" content="http://ohvhuumh1.bkt.clouddn.com/17-1-26/48257258-file_1485438820817_15201.jpg">
-<meta property="og:image" content="http://ohvhuumh1.bkt.clouddn.com/17-1-26/39928884-file_1485440159782_49a8.jpg">
-<meta property="og:updated_time" content="2017-10-30T15:43:53.127Z">
+<meta property="og:description" content="body和header之间以回车换行符分割，即CR+LF">
+<meta property="og:image" content="http://ohvhuumh1.bkt.clouddn.com/18-1-14/76212140.jpg">
+<meta property="og:image" content="http://ohvhuumh1.bkt.clouddn.com/18-1-13/88971240.jpg">
+<meta property="og:image" content="http://ohvhuumh1.bkt.clouddn.com/18-1-14/53732896.jpg">
+<meta property="og:image" content="http://ohvhuumh1.bkt.clouddn.com/18-1-14/89893857.jpg">
+<meta property="og:image" content="http://ohvhuumh1.bkt.clouddn.com/18-1-14/7284860.jpg">
+<meta property="og:image" content="http://ohvhuumh1.bkt.clouddn.com/18-1-14/64228224.jpg">
+<meta property="og:updated_time" content="2018-01-14T15:59:27.238Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="toolbar+tablayout分割线处理">
-<meta name="twitter:description" content="有一段时间没有更博了，期末考试结束之后学习到的基本都是零散的小知识，总觉得没什么必要写在博客里，不过现在看来，有些东西不记录的确很快就会忘记。在这里记录一下最近使用tablayout+toolbar+drawerlayout中遇到的问题。tablayout的基本使用可以参考这篇文章tablayout的基本使用drawerlayout的使用可以参考如下文章drawerlayout简单使用">
-<meta name="twitter:image" content="http://ohvhuumh1.bkt.clouddn.com/17-1-26/48257258-file_1485438820817_15201.jpg">
+<meta name="twitter:title" content="《图解http》笔记">
+<meta name="twitter:description" content="body和header之间以回车换行符分割，即CR+LF">
+<meta name="twitter:image" content="http://ohvhuumh1.bkt.clouddn.com/18-1-14/76212140.jpg">
   
     <link rel="alternative" href="/atom.xml" title="Distancelin&#39;s blog" type="application/atom+xml">
   
@@ -154,29 +158,402 @@ var _hmt = _hmt || [];
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-toolbar-tablayout分割线处理" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-《图解http》笔记" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      toolbar+tablayout分割线处理
+      《图解http》笔记
     </h1>
   
 
         
-        <a href="/2017/01/26/toolbar-tablayout分割线处理/" class="archive-article-date">
-  	<time datetime="2017-01-26T10:09:13.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-01-26</time>
+        <a href="/2018/01/13/《图解http》笔记/" class="archive-article-date">
+  	<time datetime="2018-01-13T14:44:06.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-01-13</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>有一段时间没有更博了，期末考试结束之后学习到的基本都是零散的小知识，总觉得没什么必要写在博客里，不过现在看来，有些东西不记录的确很快就会忘记。在这里记录一下最近使用tablayout+toolbar+drawerlayout中遇到的问题。<br>tablayout的基本使用可以参考这篇文章<br><a href="http://www.jianshu.com/p/63749f831515" target="_blank" rel="external">tablayout的基本使用</a><br>drawerlayout的使用可以参考如下文章<br><a href="http://www.jianshu.com/p/c8cbeb7ea43a/" target="_blank" rel="external">drawerlayout简单使用</a><br><a id="more"></a></p>
-<h2 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h2><p>下面是我遇到的问题，项目的开始，按照google的guide，我实现的tablayout+toolbar+drawerlayout界面，这是一个比较简单的界面<br><img src="http://ohvhuumh1.bkt.clouddn.com/17-1-26/48257258-file_1485438820817_15201.jpg" alt=""><br>当进行向上滑动的时候toolbar将进行隐藏，但是可以明显的看到，toolbar与tab之间有一条横线，很不协调。一开始我认为是toolbar的elevation属性导致了该原因，将该属性去掉之后问题仍然不能解决。<br>网上也有资料说将tablayout放置在toolbar中(因为toolbar继承自viewgroup，也是一个容器)，但是在我的app中，同时用到了drawerlayout，你可能想在每个fragment中include一个toolbar，再将tablayout放在toolbar中，当然如果你的toolbar只是用来显示一个标题的话，完全可以这样做，但是因为toolbar中还包括了一个drawertoggle，如果这样就需要将每个toolbar与drawerlayout和toggle进行绑定，显得比较麻烦，所以我只采用了一个toolbar+framelayout(用于放置抽屉item对应的fragment)。</p>
-<h2 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h2><p>由于toolbar是包裹在appbarlayout中的，设置该appbarlayout的app:elevation=0，就能解决问题。<br><img src="http://ohvhuumh1.bkt.clouddn.com/17-1-26/39928884-file_1485440159782_49a8.jpg" alt=""></p>
+        <p><img src="http://ohvhuumh1.bkt.clouddn.com/18-1-14/76212140.jpg" alt=""><br><strong>body和header之间以回车换行符分割，即CR+LF</strong><br><a id="more"></a><br>请求和响应报文：<br><img src="http://ohvhuumh1.bkt.clouddn.com/18-1-13/88971240.jpg" alt=""></p>
+<h2 id="一、首部字段（Http-1-1）"><a href="#一、首部字段（Http-1-1）" class="headerlink" title="一、首部字段（Http/1.1）"></a>一、首部字段（Http/1.1）</h2><p>1.常用通用首部字段</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">首部字段名</th>
+<th style="text-align:left">作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">Cache-Control</td>
+<td style="text-align:left">控制缓存行为</td>
+</tr>
+<tr>
+<td style="text-align:left">Connection</td>
+<td style="text-align:left">管理连接</td>
+</tr>
+<tr>
+<td style="text-align:left">Date</td>
+<td style="text-align:left">报文创建的日期时间</td>
+</tr>
+<tr>
+<td style="text-align:left">Pragma</td>
+<td style="text-align:left">报文指令</td>
+</tr>
+<tr>
+<td style="text-align:left">Transfer-Encoding</td>
+<td style="text-align:left">指定报文主题的传输编码方式</td>
+</tr>
+<tr>
+<td style="text-align:left">Upgrade</td>
+<td style="text-align:left">升级为其他协议</td>
+</tr>
+</tbody>
+</table>
+<p>Cache-Control字段出现在请求和响应报文中又有不同的意义，在请求首部中:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">指令</th>
+<th style="text-align:left">参数</th>
+<th style="text-align:left">作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">no-cache</td>
+<td style="text-align:left">无</td>
+<td style="text-align:left">强制向服务器请求数据</td>
+</tr>
+<tr>
+<td style="text-align:left">only-if-cached</td>
+<td style="text-align:left">无</td>
+<td style="text-align:left">从缓存获取数据</td>
+</tr>
+<tr>
+<td style="text-align:left">max-age=[秒]</td>
+<td style="text-align:left">必需</td>
+<td style="text-align:left">响应数据的有效期</td>
+</tr>
+<tr>
+<td style="text-align:left">max-stale=[秒]</td>
+<td style="text-align:left">可省略</td>
+<td style="text-align:left">数据过期之后仍然可用的时间</td>
+</tr>
+</tbody>
+</table>
+<p>在响应首部中：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">指令</th>
+<th style="text-align:left">参数</th>
+<th style="text-align:left">作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">public</td>
+<td style="text-align:left">无</td>
+<td style="text-align:left">可以向任何用户提供该缓存数据</td>
+</tr>
+<tr>
+<td style="text-align:left">private</td>
+<td style="text-align:left">无</td>
+<td style="text-align:left">只向特定用户提供该缓存数据</td>
+</tr>
+<tr>
+<td style="text-align:left">max-age=[秒]</td>
+<td style="text-align:left">必需</td>
+<td style="text-align:left">响应数据有效期</td>
+</tr>
+</tbody>
+</table>
+<p>2.常用请求首部字段</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">首部字段名</th>
+<th style="text-align:left">作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">Accept</td>
+<td style="text-align:left">客户端可处理的媒体类型</td>
+</tr>
+<tr>
+<td style="text-align:left">Accept-Charset</td>
+<td style="text-align:left">优先字符集</td>
+</tr>
+<tr>
+<td style="text-align:left">Accept-Encoding</td>
+<td style="text-align:left">优先的内容编码</td>
+</tr>
+<tr>
+<td style="text-align:left">Accept-Language</td>
+<td style="text-align:left">优先语言（自然语言）</td>
+</tr>
+<tr>
+<td style="text-align:left">Host</td>
+<td style="text-align:left">所请求的资源所在服务器</td>
+</tr>
+<tr>
+<td style="text-align:left">If-Modified-Since</td>
+<td style="text-align:left">比较资源的更新时间</td>
+</tr>
+<tr>
+<td style="text-align:left">If-Match</td>
+<td style="text-align:left">比较实体标记（ETag）</td>
+</tr>
+<tr>
+<td style="text-align:left">Range</td>
+<td style="text-align:left">实体的字节范围请求</td>
+</tr>
+<tr>
+<td style="text-align:left">User-Agent</td>
+<td style="text-align:left">Http客户端程序信息</td>
+</tr>
+</tbody>
+</table>
+<p>3.常用响应首部字段</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">首部字段名</th>
+<th style="text-align:left">作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">Server</td>
+<td style="text-align:left">Http服务器的安装信息</td>
+</tr>
+<tr>
+<td style="text-align:left">Accept-Ranges</td>
+<td style="text-align:left">是否接受字节范围请求</td>
+</tr>
+<tr>
+<td style="text-align:left">ETag</td>
+<td style="text-align:left">实体标记信息</td>
+</tr>
+<tr>
+<td style="text-align:left">Location</td>
+<td style="text-align:left">令客户端重定向到指定URI</td>
+</tr>
+<tr>
+<td style="text-align:left">Retry-After</td>
+<td style="text-align:left">对再次发起请求的时机要求</td>
+</tr>
+</tbody>
+</table>
+<p>4.常用实体首部字段</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">首部字段名</th>
+<th style="text-align:left">作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">Expires</td>
+<td style="text-align:left">实体过期的日期时间</td>
+</tr>
+<tr>
+<td style="text-align:left">Last-Modified</td>
+<td style="text-align:left">资源的最后修改时间</td>
+</tr>
+<tr>
+<td style="text-align:left">Allow</td>
+<td style="text-align:left">资源可支持的Http方法</td>
+</tr>
+<tr>
+<td style="text-align:left">Content-Type</td>
+<td style="text-align:left">实体的媒体类型</td>
+</tr>
+<tr>
+<td style="text-align:left">Content-Length</td>
+<td style="text-align:left">实体的大小（单位：字节）</td>
+</tr>
+<tr>
+<td style="text-align:left">Content-Range</td>
+<td style="text-align:left">实体的字节范围</td>
+</tr>
+<tr>
+<td style="text-align:left">Content-Language</td>
+<td style="text-align:left">实体的自然语言</td>
+</tr>
+</tbody>
+</table>
+<p>除了以上Http/1.1中列出的常用字段之外，以下字段在通信中也很常用，如：<br>Cookie、Set-Cookie.</p>
+<p>二、首部和缓存控制<br>安卓中网络请求都会涉及到缓存的考虑，比如okhttp就涉及了缓存策略。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Http版本</th>
+<th style="text-align:left">缓存相关字段</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">1.1之前</td>
+<td style="text-align:left">Prama、Expires、Last-Modified、If-Modify-Since</td>
+</tr>
+<tr>
+<td style="text-align:left">1.1</td>
+<td style="text-align:left">Cache-Control、Etag、If-None-Match</td>
+</tr>
+</tbody>
+</table>
+<p>1.1中的缓存控制字段优先级都高于旧版本的字段、Cache-Control/Expires的优先级高于Last-Modified/ETag。在这些字段的作用下，一次请求的工作流程如下：  </p>
+<p><img src="http://ohvhuumh1.bkt.clouddn.com/18-1-14/53732896.jpg" alt=""></p>
+<p><strong>若在强制刷新的场景下（比如安卓下拉刷新了），就不应该再执行第一个判断而是应该直接发起网络条件请求</strong></p>
+<p>在电脑端浏览器刷新的时候，F5和Ctr+F5也存在重要的区别：<br><img src="http://ohvhuumh1.bkt.clouddn.com/18-1-14/89893857.jpg" alt=""><br>ctr+F5直接连条件请求也跳过了。</p>
+<h2 id="三、Http的常用请求方法"><a href="#三、Http的常用请求方法" class="headerlink" title="三、Http的常用请求方法"></a>三、Http的常用请求方法</h2><table>
+<thead>
+<tr>
+<th style="text-align:left">方法</th>
+<th style="text-align:left">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">GET</td>
+<td style="text-align:left">请求指定页面，并返回实体body</td>
+</tr>
+<tr>
+<td style="text-align:left">HEAD</td>
+<td style="text-align:left">类似Get，但不返回实体</td>
+</tr>
+<tr>
+<td style="text-align:left">POST</td>
+<td style="text-align:left">向服务器提交数据（表单或上传文件）</td>
+</tr>
+<tr>
+<td style="text-align:left">PUT</td>
+<td style="text-align:left">从客户端向服务器传送的数据取代服务器上的指定数据</td>
+</tr>
+<tr>
+<td style="text-align:left">DELETE</td>
+<td style="text-align:left">请求服务器删除指定页面</td>
+</tr>
+<tr>
+<td style="text-align:left">TRACE</td>
+<td style="text-align:left">回显服务器收到的请求，主要用于测试或诊断</td>
+</tr>
+</tbody>
+</table>
+<p><strong>GET和POST的区别</strong></p>
+<ol>
+<li>GET请求可以被缓存，POST不能</li>
+<li>GET请求提交参数时参数直接显示在URL上，以?链接以&amp;分割多个参数，而POST请求将参数置于请求实体中，更加安全</li>
+<li>由于URL会有长度限制，所以GET请求会受到长度限制，POST请求理论上不会。</li>
+</ol>
+<h2 id="四、HTTP状态码"><a href="#四、HTTP状态码" class="headerlink" title="四、HTTP状态码"></a>四、HTTP状态码</h2><p>状态码分为五类：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">分类</th>
+<th style="text-align:left">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">1xx</td>
+<td style="text-align:left">服务器收到请求，需要请求者继续执行操作</td>
+</tr>
+<tr>
+<td style="text-align:left">2xx</td>
+<td style="text-align:left">成功，操作被成功接收并处理</td>
+</tr>
+<tr>
+<td style="text-align:left">3xx</td>
+<td style="text-align:left">重定向，需要进一步的操作完成请求</td>
+</tr>
+<tr>
+<td style="text-align:left">4xx</td>
+<td style="text-align:left">客户端错误，请求包含语法错误</td>
+</tr>
+<tr>
+<td style="text-align:left">5xx</td>
+<td style="text-align:left">服务器错误，服务器在处理请求过程中发生了错误</td>
+</tr>
+</tbody>
+</table>
+<p>常见的状态码：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">状态码</th>
+<th style="text-align:left">描述字段</th>
+<th style="text-align:left">中文描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">200</td>
+<td style="text-align:left">OK</td>
+<td style="text-align:left">请求成功，一般用于GET和POST</td>
+</tr>
+<tr>
+<td style="text-align:left">204</td>
+<td style="text-align:left">No Content</td>
+<td style="text-align:left">无内容，服务器成功处理但未返回内容，在未更新网页的情况，可确保浏览器继续显示当前文档</td>
+</tr>
+<tr>
+<td style="text-align:left">206</td>
+<td style="text-align:left">Partial Content</td>
+<td style="text-align:left">部分内容，服务器成功处理了范围GET请求</td>
+</tr>
+<tr>
+<td style="text-align:left">301</td>
+<td style="text-align:left">Moved Permanently</td>
+<td style="text-align:left">永久移动，请求的资源已被永久移动到新URI（Location字段），浏览器会自动定向到新URI，今后任何新的请求都应使用新URI</td>
+</tr>
+<tr>
+<td style="text-align:left">302</td>
+<td style="text-align:left">Found</td>
+<td style="text-align:left">临时移动，与301类似，但资源只是临时被移动。客户端应继续使用原有URI</td>
+</tr>
+<tr>
+<td style="text-align:left">304</td>
+<td style="text-align:left">Not Modified</td>
+<td style="text-align:left">未修改，用于条件GET请求</td>
+</tr>
+<tr>
+<td style="text-align:left">400</td>
+<td style="text-align:left">Forbidden</td>
+<td style="text-align:left">服务器理解客户端请求，但是拒绝执行</td>
+</tr>
+<tr>
+<td style="text-align:left">404</td>
+<td style="text-align:left">Not Found</td>
+<td style="text-align:left">请求的资源不存在</td>
+</tr>
+<tr>
+<td style="text-align:left">500</td>
+<td style="text-align:left">Internal Server Error</td>
+<td style="text-align:left">服务器内部错误，无法完成请求</td>
+</tr>
+<tr>
+<td style="text-align:left">505</td>
+<td style="text-align:left">HTTP version not supported</td>
+<td style="text-align:left">服务器不支持请求的Http协议版本</td>
+</tr>
+</tbody>
+</table>
+<h2 id="五、Https"><a href="#五、Https" class="headerlink" title="五、Https"></a>五、Https</h2><p>Https即运行于SSL之上的Http协议，SSL提供加密、认证以及完整性三种技术来保证Http的安全通信。<br><img src="http://ohvhuumh1.bkt.clouddn.com/18-1-14/7284860.jpg" alt=""></p>
+<ol>
+<li><strong>认证</strong><br>SSL提供客户端认证（可选）服务器认证（必须），客户端首先会通过SSL握手来确认服务器的真实性，这一阶段服务器会把自己的密钥证书（由CA颁发并签名）发送给客户端，客户端用CA公钥（一般内置到了浏览器中）来验证该证书是否是由正规CA颁发，并且从中获取到服务器的公钥。</li>
+<li><strong>加密</strong><br>SSL中同时使用对称加密和非对称加密，在传递密钥的时候，采用非对称加密，一旦客户端和服务器完成密钥协商之后，后期的通信就采用协商的密钥进行对称加密。因为对称加密比非对称加密的效率更高，而非对称加密比对称加密更加安全。这样既保证安全性又保证了通信的效率。</li>
+<li><strong>报文完整性</strong><br>使用Https发送数据时会附加一种叫做MAC（Message Authenticaiton Code）的报文摘要，和MD5、SHA-1作用相同，一旦报文被改变就能够通过摘要的值对比发现。</li>
+</ol>
+<p><img src="http://ohvhuumh1.bkt.clouddn.com/18-1-14/64228224.jpg" alt=""></p>
 
       
 
@@ -216,7 +593,7 @@ var _hmt = _hmt || [];
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Android</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">http</a>
         		</li>
       		
 		</ul>
@@ -272,7 +649,7 @@ var _hmt = _hmt || [];
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2017/01/26/toolbar-tablayout分割线处理/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2018/01/13/《图解http》笔记/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -286,18 +663,9 @@ var _hmt = _hmt || [];
   
 <nav id="article-nav">
   
-    <a href="/2017/02/01/Android-Studio修改Gradle版本/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          Android Studio修改Gradle版本
-        
-      </div>
-    </a>
   
-  
-    <a href="/2016/12/17/mvp学习笔记/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">mvp学习笔记</div>
+    <a href="/2017/11/07/GestureDetector与view的旋转/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">GestureDetector与view的旋转</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -327,7 +695,7 @@ var _hmt = _hmt || [];
   
 
   
-  <div id="SOHUCS" sid="toolbar-tablayout分割线处理" ></div> 
+  <div id="SOHUCS" sid="《图解http》笔记" ></div> 
 <script type="text/javascript"> 
 window.YiliaChangyanWrap = function() {
     var appid = "cyti0i7zB"; 

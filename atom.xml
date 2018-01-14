@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-11-13T16:02:42.000Z</updated>
+  <updated>2018-01-14T15:59:27.238Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -14,6 +14,402 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>《图解http》笔记</title>
+    <link href="http://yoursite.com/2018/01/13/%E3%80%8A%E5%9B%BE%E8%A7%A3http%E3%80%8B%E7%AC%94%E8%AE%B0/"/>
+    <id>http://yoursite.com/2018/01/13/《图解http》笔记/</id>
+    <published>2018-01-13T14:44:06.000Z</published>
+    <updated>2018-01-14T15:59:27.238Z</updated>
+    
+    <content type="html"><![CDATA[<p><img src="http://ohvhuumh1.bkt.clouddn.com/18-1-14/76212140.jpg" alt=""><br><strong>body和header之间以回车换行符分割，即CR+LF</strong><br><a id="more"></a><br>请求和响应报文：<br><img src="http://ohvhuumh1.bkt.clouddn.com/18-1-13/88971240.jpg" alt=""></p>
+<h2 id="一、首部字段（Http-1-1）"><a href="#一、首部字段（Http-1-1）" class="headerlink" title="一、首部字段（Http/1.1）"></a>一、首部字段（Http/1.1）</h2><p>1.常用通用首部字段</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">首部字段名</th>
+<th style="text-align:left">作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">Cache-Control</td>
+<td style="text-align:left">控制缓存行为</td>
+</tr>
+<tr>
+<td style="text-align:left">Connection</td>
+<td style="text-align:left">管理连接</td>
+</tr>
+<tr>
+<td style="text-align:left">Date</td>
+<td style="text-align:left">报文创建的日期时间</td>
+</tr>
+<tr>
+<td style="text-align:left">Pragma</td>
+<td style="text-align:left">报文指令</td>
+</tr>
+<tr>
+<td style="text-align:left">Transfer-Encoding</td>
+<td style="text-align:left">指定报文主题的传输编码方式</td>
+</tr>
+<tr>
+<td style="text-align:left">Upgrade</td>
+<td style="text-align:left">升级为其他协议</td>
+</tr>
+</tbody>
+</table>
+<p>Cache-Control字段出现在请求和响应报文中又有不同的意义，在请求首部中:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">指令</th>
+<th style="text-align:left">参数</th>
+<th style="text-align:left">作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">no-cache</td>
+<td style="text-align:left">无</td>
+<td style="text-align:left">强制向服务器请求数据</td>
+</tr>
+<tr>
+<td style="text-align:left">only-if-cached</td>
+<td style="text-align:left">无</td>
+<td style="text-align:left">从缓存获取数据</td>
+</tr>
+<tr>
+<td style="text-align:left">max-age=[秒]</td>
+<td style="text-align:left">必需</td>
+<td style="text-align:left">响应数据的有效期</td>
+</tr>
+<tr>
+<td style="text-align:left">max-stale=[秒]</td>
+<td style="text-align:left">可省略</td>
+<td style="text-align:left">数据过期之后仍然可用的时间</td>
+</tr>
+</tbody>
+</table>
+<p>在响应首部中：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">指令</th>
+<th style="text-align:left">参数</th>
+<th style="text-align:left">作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">public</td>
+<td style="text-align:left">无</td>
+<td style="text-align:left">可以向任何用户提供该缓存数据</td>
+</tr>
+<tr>
+<td style="text-align:left">private</td>
+<td style="text-align:left">无</td>
+<td style="text-align:left">只向特定用户提供该缓存数据</td>
+</tr>
+<tr>
+<td style="text-align:left">max-age=[秒]</td>
+<td style="text-align:left">必需</td>
+<td style="text-align:left">响应数据有效期</td>
+</tr>
+</tbody>
+</table>
+<p>2.常用请求首部字段</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">首部字段名</th>
+<th style="text-align:left">作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">Accept</td>
+<td style="text-align:left">客户端可处理的媒体类型</td>
+</tr>
+<tr>
+<td style="text-align:left">Accept-Charset</td>
+<td style="text-align:left">优先字符集</td>
+</tr>
+<tr>
+<td style="text-align:left">Accept-Encoding</td>
+<td style="text-align:left">优先的内容编码</td>
+</tr>
+<tr>
+<td style="text-align:left">Accept-Language</td>
+<td style="text-align:left">优先语言（自然语言）</td>
+</tr>
+<tr>
+<td style="text-align:left">Host</td>
+<td style="text-align:left">所请求的资源所在服务器</td>
+</tr>
+<tr>
+<td style="text-align:left">If-Modified-Since</td>
+<td style="text-align:left">比较资源的更新时间</td>
+</tr>
+<tr>
+<td style="text-align:left">If-Match</td>
+<td style="text-align:left">比较实体标记（ETag）</td>
+</tr>
+<tr>
+<td style="text-align:left">Range</td>
+<td style="text-align:left">实体的字节范围请求</td>
+</tr>
+<tr>
+<td style="text-align:left">User-Agent</td>
+<td style="text-align:left">Http客户端程序信息</td>
+</tr>
+</tbody>
+</table>
+<p>3.常用响应首部字段</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">首部字段名</th>
+<th style="text-align:left">作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">Server</td>
+<td style="text-align:left">Http服务器的安装信息</td>
+</tr>
+<tr>
+<td style="text-align:left">Accept-Ranges</td>
+<td style="text-align:left">是否接受字节范围请求</td>
+</tr>
+<tr>
+<td style="text-align:left">ETag</td>
+<td style="text-align:left">实体标记信息</td>
+</tr>
+<tr>
+<td style="text-align:left">Location</td>
+<td style="text-align:left">令客户端重定向到指定URI</td>
+</tr>
+<tr>
+<td style="text-align:left">Retry-After</td>
+<td style="text-align:left">对再次发起请求的时机要求</td>
+</tr>
+</tbody>
+</table>
+<p>4.常用实体首部字段</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">首部字段名</th>
+<th style="text-align:left">作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">Expires</td>
+<td style="text-align:left">实体过期的日期时间</td>
+</tr>
+<tr>
+<td style="text-align:left">Last-Modified</td>
+<td style="text-align:left">资源的最后修改时间</td>
+</tr>
+<tr>
+<td style="text-align:left">Allow</td>
+<td style="text-align:left">资源可支持的Http方法</td>
+</tr>
+<tr>
+<td style="text-align:left">Content-Type</td>
+<td style="text-align:left">实体的媒体类型</td>
+</tr>
+<tr>
+<td style="text-align:left">Content-Length</td>
+<td style="text-align:left">实体的大小（单位：字节）</td>
+</tr>
+<tr>
+<td style="text-align:left">Content-Range</td>
+<td style="text-align:left">实体的字节范围</td>
+</tr>
+<tr>
+<td style="text-align:left">Content-Language</td>
+<td style="text-align:left">实体的自然语言</td>
+</tr>
+</tbody>
+</table>
+<p>除了以上Http/1.1中列出的常用字段之外，以下字段在通信中也很常用，如：<br>Cookie、Set-Cookie.</p>
+<p>二、首部和缓存控制<br>安卓中网络请求都会涉及到缓存的考虑，比如okhttp就涉及了缓存策略。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Http版本</th>
+<th style="text-align:left">缓存相关字段</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">1.1之前</td>
+<td style="text-align:left">Prama、Expires、Last-Modified、If-Modify-Since</td>
+</tr>
+<tr>
+<td style="text-align:left">1.1</td>
+<td style="text-align:left">Cache-Control、Etag、If-None-Match</td>
+</tr>
+</tbody>
+</table>
+<p>1.1中的缓存控制字段优先级都高于旧版本的字段、Cache-Control/Expires的优先级高于Last-Modified/ETag。在这些字段的作用下，一次请求的工作流程如下：  </p>
+<p><img src="http://ohvhuumh1.bkt.clouddn.com/18-1-14/53732896.jpg" alt=""></p>
+<p><strong>若在强制刷新的场景下（比如安卓下拉刷新了），就不应该再执行第一个判断而是应该直接发起网络条件请求</strong></p>
+<p>在电脑端浏览器刷新的时候，F5和Ctr+F5也存在重要的区别：<br><img src="http://ohvhuumh1.bkt.clouddn.com/18-1-14/89893857.jpg" alt=""><br>ctr+F5直接连条件请求也跳过了。</p>
+<h2 id="三、Http的常用请求方法"><a href="#三、Http的常用请求方法" class="headerlink" title="三、Http的常用请求方法"></a>三、Http的常用请求方法</h2><table>
+<thead>
+<tr>
+<th style="text-align:left">方法</th>
+<th style="text-align:left">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">GET</td>
+<td style="text-align:left">请求指定页面，并返回实体body</td>
+</tr>
+<tr>
+<td style="text-align:left">HEAD</td>
+<td style="text-align:left">类似Get，但不返回实体</td>
+</tr>
+<tr>
+<td style="text-align:left">POST</td>
+<td style="text-align:left">向服务器提交数据（表单或上传文件）</td>
+</tr>
+<tr>
+<td style="text-align:left">PUT</td>
+<td style="text-align:left">从客户端向服务器传送的数据取代服务器上的指定数据</td>
+</tr>
+<tr>
+<td style="text-align:left">DELETE</td>
+<td style="text-align:left">请求服务器删除指定页面</td>
+</tr>
+<tr>
+<td style="text-align:left">TRACE</td>
+<td style="text-align:left">回显服务器收到的请求，主要用于测试或诊断</td>
+</tr>
+</tbody>
+</table>
+<p><strong>GET和POST的区别</strong></p>
+<ol>
+<li>GET请求可以被缓存，POST不能</li>
+<li>GET请求提交参数时参数直接显示在URL上，以?链接以&amp;分割多个参数，而POST请求将参数置于请求实体中，更加安全</li>
+<li>由于URL会有长度限制，所以GET请求会受到长度限制，POST请求理论上不会。</li>
+</ol>
+<h2 id="四、HTTP状态码"><a href="#四、HTTP状态码" class="headerlink" title="四、HTTP状态码"></a>四、HTTP状态码</h2><p>状态码分为五类：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">分类</th>
+<th style="text-align:left">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">1xx</td>
+<td style="text-align:left">服务器收到请求，需要请求者继续执行操作</td>
+</tr>
+<tr>
+<td style="text-align:left">2xx</td>
+<td style="text-align:left">成功，操作被成功接收并处理</td>
+</tr>
+<tr>
+<td style="text-align:left">3xx</td>
+<td style="text-align:left">重定向，需要进一步的操作完成请求</td>
+</tr>
+<tr>
+<td style="text-align:left">4xx</td>
+<td style="text-align:left">客户端错误，请求包含语法错误</td>
+</tr>
+<tr>
+<td style="text-align:left">5xx</td>
+<td style="text-align:left">服务器错误，服务器在处理请求过程中发生了错误</td>
+</tr>
+</tbody>
+</table>
+<p>常见的状态码：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">状态码</th>
+<th style="text-align:left">描述字段</th>
+<th style="text-align:left">中文描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">200</td>
+<td style="text-align:left">OK</td>
+<td style="text-align:left">请求成功，一般用于GET和POST</td>
+</tr>
+<tr>
+<td style="text-align:left">204</td>
+<td style="text-align:left">No Content</td>
+<td style="text-align:left">无内容，服务器成功处理但未返回内容，在未更新网页的情况，可确保浏览器继续显示当前文档</td>
+</tr>
+<tr>
+<td style="text-align:left">206</td>
+<td style="text-align:left">Partial Content</td>
+<td style="text-align:left">部分内容，服务器成功处理了范围GET请求</td>
+</tr>
+<tr>
+<td style="text-align:left">301</td>
+<td style="text-align:left">Moved Permanently</td>
+<td style="text-align:left">永久移动，请求的资源已被永久移动到新URI（Location字段），浏览器会自动定向到新URI，今后任何新的请求都应使用新URI</td>
+</tr>
+<tr>
+<td style="text-align:left">302</td>
+<td style="text-align:left">Found</td>
+<td style="text-align:left">临时移动，与301类似，但资源只是临时被移动。客户端应继续使用原有URI</td>
+</tr>
+<tr>
+<td style="text-align:left">304</td>
+<td style="text-align:left">Not Modified</td>
+<td style="text-align:left">未修改，用于条件GET请求</td>
+</tr>
+<tr>
+<td style="text-align:left">400</td>
+<td style="text-align:left">Forbidden</td>
+<td style="text-align:left">服务器理解客户端请求，但是拒绝执行</td>
+</tr>
+<tr>
+<td style="text-align:left">404</td>
+<td style="text-align:left">Not Found</td>
+<td style="text-align:left">请求的资源不存在</td>
+</tr>
+<tr>
+<td style="text-align:left">500</td>
+<td style="text-align:left">Internal Server Error</td>
+<td style="text-align:left">服务器内部错误，无法完成请求</td>
+</tr>
+<tr>
+<td style="text-align:left">505</td>
+<td style="text-align:left">HTTP version not supported</td>
+<td style="text-align:left">服务器不支持请求的Http协议版本</td>
+</tr>
+</tbody>
+</table>
+<h2 id="五、Https"><a href="#五、Https" class="headerlink" title="五、Https"></a>五、Https</h2><p>Https即运行于SSL之上的Http协议，SSL提供加密、认证以及完整性三种技术来保证Http的安全通信。<br><img src="http://ohvhuumh1.bkt.clouddn.com/18-1-14/7284860.jpg" alt=""></p>
+<ol>
+<li><strong>认证</strong><br>SSL提供客户端认证（可选）服务器认证（必须），客户端首先会通过SSL握手来确认服务器的真实性，这一阶段服务器会把自己的密钥证书（由CA颁发并签名）发送给客户端，客户端用CA公钥（一般内置到了浏览器中）来验证该证书是否是由正规CA颁发，并且从中获取到服务器的公钥。</li>
+<li><strong>加密</strong><br>SSL中同时使用对称加密和非对称加密，在传递密钥的时候，采用非对称加密，一旦客户端和服务器完成密钥协商之后，后期的通信就采用协商的密钥进行对称加密。因为对称加密比非对称加密的效率更高，而非对称加密比对称加密更加安全。这样既保证安全性又保证了通信的效率。</li>
+<li><strong>报文完整性</strong><br>使用Https发送数据时会附加一种叫做MAC（Message Authenticaiton Code）的报文摘要，和MD5、SHA-1作用相同，一旦报文被改变就能够通过摘要的值对比发现。</li>
+</ol>
+<p><img src="http://ohvhuumh1.bkt.clouddn.com/18-1-14/64228224.jpg" alt=""></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;img src=&quot;http://ohvhuumh1.bkt.clouddn.com/18-1-14/76212140.jpg&quot; alt=&quot;&quot;&gt;&lt;br&gt;&lt;strong&gt;body和header之间以回车换行符分割，即CR+LF&lt;/strong&gt;&lt;br&gt;
+    
+    </summary>
+    
+    
+      <category term="http" scheme="http://yoursite.com/tags/http/"/>
+    
+  </entry>
   
   <entry>
     <title>GestureDetector与view的旋转</title>
@@ -1747,236 +2143,6 @@ protected void deliverResponse(String response) {
     <summary type="html">
     
       &lt;h2 id=&quot;Volley简介&quot;&gt;&lt;a href=&quot;#Volley简介&quot; class=&quot;headerlink&quot; title=&quot;Volley简介&quot;&gt;&lt;/a&gt;Volley简介&lt;/h2&gt;&lt;p&gt;众所周知，Volley是google在2013年开源的一款异步异步异步http网络请求库，采用Volley进行网络请求非常简单。那么怎样个异步法？最简单的解释就是：&lt;br&gt;使用Volley你不用再像原生的HttpUrlConnection一样new Thread(new runable());新开工作线程这些事Volley都帮你做了。&lt;br&gt;Volley为http请求提供了如下的保障：&lt;br&gt;
-    
-    </summary>
-    
-    
-      <category term="Android" scheme="http://yoursite.com/tags/Android/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>自定义view和viewgroup</title>
-    <link href="http://yoursite.com/2017/02/20/%E8%87%AA%E5%AE%9A%E4%B9%89view%E5%92%8Cviewgroup/"/>
-    <id>http://yoursite.com/2017/02/20/自定义view和viewgroup/</id>
-    <published>2017-02-20T13:14:28.000Z</published>
-    <updated>2017-10-30T15:41:30.447Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>我的上一篇博客对view的绘制过程作了介绍，那么接下来当然是创造自己的view，为了方便描述，下文依然将使用view代表不能包含子内容的控件，用viewgroup代表容器，但是实际上viewgroup也是view（ViewGroup类继承自View类）。由于最近才开始正式探索view方面的知识，所以这几篇文章也是对我学习view的一个记录吧，知识参考自View和ViewGroup源码以及《Android群英传》</p>
-<h2 id="View类的重要方法"><a href="#View类的重要方法" class="headerlink" title="View类的重要方法"></a>View类的重要方法</h2><a id="more"></a>
-<p>这里介绍的是继承View类或者ViewGroup类进行自定义，组合控件以及继承现有控件不涉及。<br>首先明确：<br>在前一篇文章view的绘制中提到的<br>measure()、onMeasure()<br>layout()、onLayout()<br>draw()、dispatchDraw()、onDraw() 这些方法全都是View类中声明的方法，其中measure()方法为final类型不可覆盖。  </p>
-<h3 id="1-自定义view简介"><a href="#1-自定义view简介" class="headerlink" title="1.自定义view简介"></a>1.自定义view简介</h3><p>自定义view需要继承View类，并且覆盖onMeasure()（以便支持wrap_content属性）、onDraw()，因为view的位置实际是在layout()方法中通过setframe()方法进行设置的，而layout()在View类声明的时候已经实现这一操作，所以自定义view不必修改layout(),也一般不必覆盖onLayout()方法。</p>
-<h3 id="2-自定义viewgroup简介"><a href="#2-自定义viewgroup简介" class="headerlink" title="2.自定义viewgroup简介"></a>2.自定义viewgroup简介</h3><p>ViewGroup类继承自View类并且将onLayout()方法覆盖声明为abstract，所以自定义viewgroup必须实现该方法，由于viewgroup的位置也已经在layout()中设置完毕，所以onLayout()方法的唯一作用就是遍历子view并调用子view的layout()方法来布局子view。同自定义view一样，要想支持wrap_content属性，就必须覆盖onMeasure()方法,而ViewGroup类的onMeasure()只负责测量自身（仅仅使自己充满父布局），所以必须重写来重新测量自身和包含的子view。</p>
-<h2 id="谁来决定view的大小？"><a href="#谁来决定view的大小？" class="headerlink" title="谁来决定view的大小？"></a>谁来决定view的大小？</h2><p>view的大小最终是由自身决定的，而外层的viewgroup只是获取该view的xml属性，并且根据该属性进行大小的具体赋值，比如：</p>
-<pre><code>&lt;LinearLayout xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;
-        xmlns:tools=&quot;http://schemas.android.com/tools&quot;
-        android:layout_width=&quot;match_parent&quot;
-        android:layout_height=&quot;match_parent&quot;
-     android:orientation=&quot;vertical&quot;
-     tools:context=&quot;com.distancelin.demo.MainActivity&quot;&gt;
-   &lt;Button
-        android:layout_width=&quot;wrap_content&quot;
-     android:layout_height=&quot;wrap_content&quot; /&gt;
-&lt;/LinearLayout&gt;
-</code></pre><p>在LinearLayout的onMeasure()方法中，会获取到Button中所定义的两个wrap_content属性，对应了MeasureSpec.AT_MOST情况，但是LinearLayout只知道这个Button的mode是MeasureSpec.AT_MOST，并不知道具体的数值应该是多大，所以LinearLayout就会通过具体的逻辑对具体大小赋值：并且将赋值之后的数值连同Button的mode一起封装在MeasureSpec对象中传递给Button的measure()方法。这就是measure()方法中两个参数的来源。<br>ViewGroup类中的measureChild()方法就是这一过程的最简单实现：</p>
-<pre><code> protected void measureChild(View child, int parentWidthMeasureSpec,
-        int parentHeightMeasureSpec) {
-    //获取子view布局参数
-    final LayoutParams lp = child.getLayoutParams();
-    //对子view的具体大小赋值
-    final int childWidthMeasureSpec = getChildMeasureSpec(parentWidthMeasureSpec,
-            mPaddingLeft + mPaddingRight, lp.width);
-    final int childHeightMeasureSpec = getChildMeasureSpec(parentHeightMeasureSpec,
-            mPaddingTop + mPaddingBottom, lp.height);
-    //通过measure()将大小传递给子view
-    child.measure(childWidthMeasureSpec, childHeightMeasureSpec);
-}
-</code></pre><p>而measure()方法最终又将这两个参数传递给了自己的onMeasure()方法，在这里就可以根据自己的逻辑重新设置需要的大小。<br>其中getChildMeasureSpec()就是根据自己的大小，分情况对子view的大小进行赋值：</p>
-<pre><code> public static int getChildMeasureSpec(int spec, int padding, int childDimension) {
-    int specMode = MeasureSpec.getMode(spec);
-    int specSize = MeasureSpec.getSize(spec);
-
-    int size = Math.max(0, specSize - padding);
-
-    int resultSize = 0;
-    int resultMode = 0;
-
-    switch (specMode) {
-    // Parent has imposed an exact size on us
-    case MeasureSpec.EXACTLY:
-        if (childDimension &gt;= 0) {
-            resultSize = childDimension;
-            resultMode = MeasureSpec.EXACTLY;
-        } else if (childDimension == LayoutParams.MATCH_PARENT) {
-            // Child wants to be our size. So be it.
-            resultSize = size;
-            resultMode = MeasureSpec.EXACTLY;
-        } else if (childDimension == LayoutParams.WRAP_CONTENT) {
-            // Child wants to determine its own size. It can&apos;t be
-            // bigger than us.
-            resultSize = size;
-            resultMode = MeasureSpec.AT_MOST;
-        }
-        break;
-
-    // Parent has imposed a maximum size on us
-    case MeasureSpec.AT_MOST:
-        if (childDimension &gt;= 0) {
-            // Child wants a specific size... so be it
-            resultSize = childDimension;
-            resultMode = MeasureSpec.EXACTLY;
-        } else if (childDimension == LayoutParams.MATCH_PARENT) {
-            // Child wants to be our size, but our size is not fixed.
-            // Constrain child to not be bigger than us.
-            resultSize = size;
-            resultMode = MeasureSpec.AT_MOST;
-        } else if (childDimension == LayoutParams.WRAP_CONTENT) {
-            // Child wants to determine its own size. It can&apos;t be
-            // bigger than us.
-            resultSize = size;
-            resultMode = MeasureSpec.AT_MOST;
-        }
-        break;
-
-    // Parent asked to see how big we want to be
-    case MeasureSpec.UNSPECIFIED:
-        if (childDimension &gt;= 0) {
-            // Child wants a specific size... let him have it
-            resultSize = childDimension;
-            resultMode = MeasureSpec.EXACTLY;
-        } else if (childDimension == LayoutParams.MATCH_PARENT) {
-            // Child wants to be our size... find out how big it should
-            // be
-            resultSize = View.sUseZeroUnspecifiedMeasureSpec ? 0 : size;
-            resultMode = MeasureSpec.UNSPECIFIED;
-        } else if (childDimension == LayoutParams.WRAP_CONTENT) {
-            // Child wants to determine its own size.... find out how
-            // big it should be
-            resultSize = View.sUseZeroUnspecifiedMeasureSpec ? 0 : size;
-            resultMode = MeasureSpec.UNSPECIFIED;
-        }
-        break;
-    }
-    //noinspection ResourceType
-    return MeasureSpec.makeMeasureSpec(resultSize, resultMode);
-}
-</code></pre><p>可以看到，不管是view还是viewgroup的大小，最终都是在自己的onMeasure()方法中决定的，他们的父视图只负责获取view或者viewgroup的xml属性并根据属性对大小进行赋值，最终传递给子view的onMeasure()方法。<br><strong>所以我是这样理解的，一个view的大小是在父viewgroup的控制之下，由自己在onMeasure()中调用setMeasuredDimension()最终确定的。</strong></p>
-<h2 id="谁决定了view的位置？"><a href="#谁决定了view的位置？" class="headerlink" title="谁决定了view的位置？"></a>谁决定了view的位置？</h2><p>和大小同理<br>view的位置同样是是在父viewgroup的控制之下，由自己在layout(int left,int top,int right,int bottom)中调用setFrame()最终确定的。ViewGroup.onLayout()用来布局子view，View.onLayout()方法实现为空。</p>
-<h2 id="实践——自定义viewgroup"><a href="#实践——自定义viewgroup" class="headerlink" title="实践——自定义viewgroup"></a>实践——自定义viewgroup</h2><p>根据书中描述的过程  </p>
-<p>实现类似照片浏览的功能，滑动显示每个视图，并根据滑动的距离来决定是否进入下一个视图</p>
-<pre><code>public class ScreenScrollView extends ViewGroup {
-    private int mScreenHeight;
-    private int mScreenWidth;
-    private int mLastY;
-    private Scroller mScroller;
-    private int mStart;
-
-    public ScreenScrollView(Context context) {
-        this(context, null);
-    }
-
-    public ScreenScrollView(Context context, AttributeSet attrs) {
-        super(context, attrs);
-        mScroller = new Scroller(context);
-        WindowManager wm = (WindowManager) context.getSystemService(Context.WINDOW_SERVICE);
-        mScreenHeight = wm.getDefaultDisplay().getHeight();
-        mScreenWidth = wm.getDefaultDisplay().getWidth();
-    }
-
-    @Override
-    protected void onLayout(boolean changed, int l, int t, int r, int b) {
-        int childCount = getChildCount();
-        for (int i = 0; i &lt; childCount; i++) {
-            View childView = getChildAt(i);
-            if (childView.getVisibility() != View.GONE) {
-                childView.layout(1, i * mScreenHeight, mScreenWidth-1, (i + 1) * mScreenHeight);
-            }
-        }
-    }
-
-
-    @Override
-    protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
-        //super.onMeasure()使得该viewGroup充满父布局
-        super.onMeasure(widthMeasureSpec, heightMeasureSpec);
-        int childCount = getChildCount();
-        LayoutParams mlp = getLayoutParams();
-        mlp.height = mScreenHeight * childCount;
-        setLayoutParams(mlp);
-        for (int i = 0; i &lt; childCount; i++) {
-            View childView = getChildAt(i);
-            measureChild(childView, widthMeasureSpec, heightMeasureSpec);
-        }
-    }
-
-    @Override
-    public boolean onTouchEvent(MotionEvent event) {
-        int y = (int) event.getY();
-        switch (event.getAction()) {
-            case MotionEvent.ACTION_DOWN:
-                mLastY = y;
-                mStart=getScrollY();
-                break;
-            case MotionEvent.ACTION_MOVE:
-                int dy = mLastY - y;
-                if (!mScroller.isFinished()) {
-                    mScroller.abortAnimation();
-                }
-               /* getScrollY()返回相对自己的初始位置的偏移量，计算方法为初始Y-nowY,
-               *   当已经滑到顶端并且继续往下滑*/
-                if (getScrollY() &lt; 0 &amp;&amp; dy &lt; 0) {
-                    dy = 0;
-                }
-                //内容滑到底端且手指继续往上滑
-                if (getScrollY() &gt; (getHeight() - mScreenHeight) &amp;&amp; dy &gt; 0) {
-                    dy = 0;
-                }
-                scrollBy(0, dy);
-                mLastY = y;
-                break;
-            case MotionEvent.ACTION_UP:
-                //手指往上滑时，值为负；反之为正
-                int end=getScrollY();
-                int scrollY=end-mStart;
-                //手指往上滑
-                if(scrollY&lt;0){
-                    if((-scrollY)&gt;(mScreenHeight/8)){
-                        mScroller.startScroll(0,getScrollY(),0,-mScreenHeight-scrollY);
-                    }
-                    else {
-                        mScroller.startScroll(0,getScrollY(),0,-scrollY);
-                    }
-                }
-                //手指往下滑
-                else {
-                    if(scrollY&gt;(mScreenHeight/8)){
-                        mScroller.startScroll(0,getScrollY(),0,mScreenHeight-scrollY);
-                    }
-                    else {
-                        mScroller.startScroll(0,getScrollY(),0,-scrollY);
-                    }
-                }
-                break;
-        }
-        return true;
-    }
-
-    @Override
-    public void computeScroll() {
-        super.computeScroll();
-        if (mScroller.computeScrollOffset()) {
-            scrollTo(0, mScroller.getCurrY());
-            postInvalidate();
-        }
-    }
-}
-</code></pre><p>一些小细节值得优化，大体效果如下：<br><img src="http://ohvhuumh1.bkt.clouddn.com/17-2-22/64787466-file_1487776525996_13c4d.gif" alt=""></p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;我的上一篇博客对view的绘制过程作了介绍，那么接下来当然是创造自己的view，为了方便描述，下文依然将使用view代表不能包含子内容的控件，用viewgroup代表容器，但是实际上viewgroup也是view（ViewGroup类继承自View类）。由于最近才开始正式探索view方面的知识，所以这几篇文章也是对我学习view的一个记录吧，知识参考自View和ViewGroup源码以及《Android群英传》&lt;/p&gt;
-&lt;h2 id=&quot;View类的重要方法&quot;&gt;&lt;a href=&quot;#View类的重要方法&quot; class=&quot;headerlink&quot; title=&quot;View类的重要方法&quot;&gt;&lt;/a&gt;View类的重要方法&lt;/h2&gt;
     
     </summary>
     
